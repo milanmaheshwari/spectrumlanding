@@ -1,18 +1,31 @@
 @keyframes submitani {
     0% {
-      left: 62vh;
+      right: 2vw;
     }
     50% {
-      left: 62.5vh;
+      right: 2.5vw;
     }
     100% {
-      left: 62vh;
+      right: 2vw;
+    }
+}
+@keyframes submitanimob {
+    0% {
+      right: 4vw;
+    }
+    50% {
+      right: 4.5vw;
+    }
+    100% {
+      right: 4vw;
     }
 }
 
 body{
     background-color: #05020B;
 }
+
+@media (min-width: 960px){
 
 #flexcontainer{
     position: relative;
@@ -87,12 +100,12 @@ body{
     position: absolute;
 }
 #emailinputbox{
-    width: 70vh;
+    width: 60vw;
     height: 10vh;
     font-family: Montserrat, sans-serif;
     font-size: 2.5vh;
     font-weight: 600;
-    padding-left: 3vh;
+    padding-left: 2vw;
     color: #CAAEFF;
     box-sizing: border-box;
     border-width: 0.4vh;
@@ -109,7 +122,7 @@ body{
 #submit{
     position: absolute;
     top: 3.25vh;
-    left: 62vh;
+    right: 2vw;
     background: transparent;
     border: transparent;
     font-family: 'Montserrat', sans-serif;
@@ -128,11 +141,11 @@ body{
 
 #videocontainer{
     position: absolute;
-    width: calc(100vw - 44vh);
+    width: calc(100vw - 20vh);
     top: 104vh;
     left: 10vh;
     opacity: 0;
-    padding: 12vh;
+    padding: 0;
     background-color: #814DE50D;
     border: 0.5vh solid #814DE51A;
     border-radius: 4vh;
@@ -146,7 +159,147 @@ body{
     position: absolute;
     text-align: center;
     width: 100vw;
-    top: 228vh;
+    top: calc(56.25vw + 98.75vh);
     padding-bottom: 10vh;
     opacity: 0;
+}
+
+}
+
+@media (min-width: 0px) and (max-width: 960px){
+    
+#flexcontainer{
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#home{
+    position: absolute;
+    width: 80vw;
+    top: 20vh;
+    left: 10vw;
+}
+#homewelcome{
+    font-family: 'Montserrat', sans-serif;
+    font-size: calc(4vw + 2.25vh);
+    font-weight: 700;
+    color: #814DE5;
+    line-height: 144%;
+    letter-spacing: 0.02em;
+    position: absolute;
+    margin: 0;
+    top: 6vh;
+    opacity: 0;
+}
+#homewelcometitle{
+    color: #CAAEFF;
+}
+#homeheader{
+    font-family: 'Montserrat', sans-serif;
+    font-size: calc(4vw + 2.25vh);
+    font-weight: 700;
+    color: #814DE5;
+    line-height: 144%;
+    letter-spacing: 0.02em;
+    position: absolute;
+    margin: 0;
+    top: 12vh;
+    opacity: 0;
+}
+#homeheaderappln{
+    color: #CAAEFF;
+}
+#logo{
+    position: absolute;
+    margin: 0;
+    top: 12vh;
+    opacity: 0;
+    right: 10vw;
+    transform: scale(0.75);
+}
+    
+#email{
+    position: absolute;
+    width: 80vw;
+    top: 76vh;
+    left: 10vw;
+    opacity: 0;
+}
+#emailtext{
+    font-family: Montserrat, sans-serif;
+    font-size: calc(2vw + 1.125vh);
+    font-weight: 500;
+    color: #814DE5;
+    line-height: 144%;
+    letter-spacing: 0.02em;
+}
+#emailinput{
+    position: absolute;
+}
+#emailinputbox{
+    width: 80vw;
+    height: 10vh;
+    font-family: Montserrat, sans-serif;
+    font-size: calc(2vw + 1.125vh);
+    font-weight: 600;
+    padding-left: 4vw;
+    color: #CAAEFF;
+    box-sizing: border-box;
+    border-width: 0.4vh;
+    border-style: solid;
+    border-color: rgba(129, 77, 229, 0.3);
+    border-radius: 2vh;
+    outline: none;
+    background: transparent;
+}
+#emailinputbox::placeholder {
+    color: #CAAEFF;
+    opacity: 0.3;
+}
+#submit{
+    position: absolute;
+    top: 3.25vh;
+    right: 4vw;
+    background: transparent;
+    border: transparent;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    outline: none;
+    transition: left 1s ease-in-out;
+    opacity: 0.3;
+}
+#emailinputbox:focus {
+    border-color: #814DE5;
+}
+#emailinputbox:focus + button{
+    animation: submitanimob 1s infinite;
+    opacity: 1;
+} 
+#videocontainer{
+    position: absolute;
+    width: 80vw;
+    top: 108vh;
+    left: 10vw;
+    opacity: 0;
+    padding: 0;
+    background-color: #814DE50D;
+    border: 0.5vh solid #814DE51A;
+    border-radius: 4vw;
+    outline: none;
+}
+#video{
+    border-radius: 4vw;
+    outline: none;
+}
+#icons{
+    position: absolute;
+    text-align: center;
+    width: 100vw;
+    top: calc(45vw + 108vh);
+    padding-bottom: 10vh;
+    opacity: 0;
+}
 }
