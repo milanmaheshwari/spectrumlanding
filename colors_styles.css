@@ -1223,7 +1223,7 @@ body{
         opacity: 0;
         display: flex;
     }
-    #themeicon, #themeicon2, #twittericon{
+    #themeicon, #themeicon2, #twittericon, #bmcicon{
         width: 8.5vh;
         height: 8.5vh;
         margin-right: 12px;
