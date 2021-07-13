@@ -752,6 +752,7 @@ function generatecontrolpanel(){
   document.getElementById('themeiconcircle').setAttribute('fill',inputcolor.value + "4D"); 
   document.getElementById('themeiconcircle2').setAttribute('fill',inputcolor.value + "4D"); 
   document.getElementById('twittericoncircle').setAttribute('fill',inputcolor.value + "4D");
+  document.getElementById('bmciconcircle').setAttribute('fill',inputcolor.value);
 
   footerheader.style.color = inputcolor.value;
   footersubheader.style.color = inputcolor.value;

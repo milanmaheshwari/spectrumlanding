@@ -114,11 +114,10 @@ body{
         opacity: 0;
         display: flex;
     }
-    #themeicon, #themeicon2, #twittericon{
+    #themeicon, #themeicon2, #twittericon, #bmcicon{
         width: 10vh;
         height: 10vh;
-        margin-right: 4vh;
-        transform: scale(1.2);
+        margin-right: 2vh;
         cursor: pointer;
     }
     #themeicon2{
