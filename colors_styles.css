@@ -1578,9 +1578,11 @@ body{
     }
     .columnbasetooltip{
         visibility: hidden;
+        position: absolute;
     }
     .columncopytooltip{
         visibility: hidden;
+        position: absolute;
     }
     .column-content{
         opacity: 0;
