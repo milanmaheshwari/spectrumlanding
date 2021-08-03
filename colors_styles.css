@@ -59,6 +59,15 @@ body{
         transform: rotate(270deg) translateX(-100%);
         transform-origin: top left;
     }
+    #flexcontainer::-webkit-scrollbar {
+        display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    #flexcontainer {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    
     #scrollcontainer{
         transform: rotate(90deg) translateY(-100vh);
         transform-origin: top left;
@@ -1173,6 +1182,15 @@ body{
         overflow-x: hidden;
         overflow-y: scroll;
     }
+    #flexcontainer::-webkit-scrollbar {
+        display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    #flexcontainer {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    
     #home{
         position: absolute;
         width: 90vw;
