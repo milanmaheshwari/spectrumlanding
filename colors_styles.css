@@ -56,8 +56,16 @@ body{
         height: 100vw;
         overflow-x: hidden;
         overflow-y: scroll;
+        -webkit-transform: rotate(270deg) translateX(-100%);
+        -moz-transform: rotate(270deg) translateX(-100%);
+        -ms-transform: rotate(270deg) translateX(-100%);
+        -o-transform: rotate(270deg) translateX(-100%);
         transform: rotate(270deg) translateX(-100%);
         transform-origin: top left;
+        -webkit-transform-origin: top left;
+        -moz-transform-origin: top left;
+        -ms-transform-origin: top left;
+        -o-transform-origin: top left;
     }
     #flexcontainer::-webkit-scrollbar {
         display: none;
@@ -69,8 +77,16 @@ body{
     }
     
     #scrollcontainer{
+        -webkit-transform: rotate(90deg) translateY(-100vh);
+        -moz-transform: rotate(90deg) translateY(-100vh);
+        -ms-transform: rotate(90deg) translateY(-100vh);
+        -o-transform: rotate(90deg) translateY(-100vh);
         transform: rotate(90deg) translateY(-100vh);
         transform-origin: top left;
+        -webkit-transform-origin: top left;
+        -moz-transform-origin: top left;
+        -ms-transform-origin: top left;
+        -o-transform-origin: top left;
         white-space: unset;
     }
     #home{
