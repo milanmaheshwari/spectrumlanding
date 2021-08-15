@@ -18,7 +18,7 @@ var huessetindex;
 var shadessetindex;
 var huestartindex;
 var shadestartindex;
-var extremeneutralindex;
+var customstartindex;
 var finalpalette = [];
 var uploadimgdata1;
 var uploadimgdata2;
@@ -541,22 +541,21 @@ function generatepalette(){
     customset[0] = [];
     customset[1] = [];
     customset[2] = [];
-    var x = huestartindex;
+    var x = customstartindex;
     var y = (x + 4)%33;
     var z = (x + 16)%33;
-    var n = extremeneutralindex*32;
 
     if(larrbaseindex<8){
       customset[0] = hues[larrbaseindex];
       customset[1] = hues[larrbaseindex+8];
       customset[2] = hues[larrbaseindex+16];
-      custompalette = [customset[0][x], customset[1][x], customset[0][y], customset[1][y], customset[0][z], neutrals[n]];
+      custompalette = [customset[0][x], customset[1][x], customset[0][y], customset[1][y], customset[0][z], customset[1][z]];
     }
     else if(larrbaseindex>24){
       customset[0] = hues[larrbaseindex-16];
       customset[1] = hues[larrbaseindex-8];
       customset[2] = hues[larrbaseindex];
-      custompalette = [customset[2][x], customset[1][x], customset[2][y], customset[1][y], customset[2][z], neutrals[n]];
+      custompalette = [customset[2][x], customset[1][x], customset[2][y], customset[1][y], customset[2][z], customset[1][z]];
     }
     else if(larrbaseindex>=8 && larrbaseindex<=24){
       customset[0] = hues[larrbaseindex+8];
@@ -594,7 +593,7 @@ function shufflepalette(){
   var harmony = document.querySelector('input[name = harmony]:checked').value;
   if(harmony == "shades"){shadestartindex = randomInteger(0,32);}
   if(harmony == "hues"){huestartindex = randomInteger(0,32);}
-  if(harmony == "custom"){huestartindex = randomInteger(0,32); extremeneutralindex = randomInteger(0,1);}
+  if(harmony == "custom"){customstartindex = randomInteger(0,32);}
   generatepalette();
 }
 
@@ -893,6 +892,24 @@ function generateimage(cvs, ctx){
   for (var i = 0; i < finalpalette.length; i++) {
     hslfinalpalette[i] = hextohsl(finalpalette[i]);
   }
+
+  var hfinalpalette = [];
+  for (var i = 0; i < hslfinalpalette.length; i++) {
+    hfinalpalette[i] = hslfinalpalette[i].h;
+  }
+  hfinalpalette.sort(function(a, b){return a-b});
+
+  var sfinalpalette = [];
+  for (var i = 0; i < hslfinalpalette.length; i++) {
+    sfinalpalette[i] = hslfinalpalette[i].s;
+  }
+  sfinalpalette.sort(function(a, b){return a-b});
+
+  var lfinalpalette = [];
+  for (var i = 0; i < hslfinalpalette.length; i++) {
+    lfinalpalette[i] = hslfinalpalette[i].l;
+  }
+  lfinalpalette.sort(function(a, b){return a-b});
   
   var avgpixell = 0;
   for (var i = 0; i < hslpixels.length; i++) {
@@ -908,12 +925,6 @@ function generateimage(cvs, ctx){
 
   var r = avgpalettel/avgpixell;
 
-  var hfinalpalette = [];
-  for (var i = 0; i < hslfinalpalette.length; i++) {
-    hfinalpalette[i] = hslfinalpalette[i].h;
-  }
-  hfinalpalette.sort(function(a, b){return a-b});
-
   var avgpalettes = 0;
   for (var i = 0; i < hslfinalpalette.length; i++) {
     avgpalettes += hslfinalpalette[i].s;
@@ -928,47 +939,17 @@ function generateimage(cvs, ctx){
   
   var s = avgpalettes/avgpixels;
 
-  if(harmony == "shades"){
-    for (var i = 0; i < hslpixels.length; i++) {
-      hslpixels[i].h *= (hfinalpalette[5] - hfinalpalette[0]);
-      hslpixels[i].h += hfinalpalette[0];
-      if(hslpixels[i].h <= (hfinalpalette[0] + hfinalpalette[1])/2){hslpixels[i].h = hfinalpalette[0];}
-      else if((hfinalpalette[0] + hfinalpalette[1])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[1] + hfinalpalette[2])/2){hslpixels[i].h = hfinalpalette[1];}
-      else if((hfinalpalette[1] + hfinalpalette[2])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[2] + hfinalpalette[3])/2){hslpixels[i].h = hfinalpalette[2];}
-      else if((hfinalpalette[2] + hfinalpalette[3])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[3] + hfinalpalette[4])/2){hslpixels[i].h = hfinalpalette[3];}
-      else if((hfinalpalette[3] + hfinalpalette[4])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[4] + hfinalpalette[5])/2){hslpixels[i].h = hfinalpalette[4];}
-      else if((hfinalpalette[4] + hfinalpalette[5])/2 < hslpixels[i].h && hslpixels[i].h <= hfinalpalette[5]){hslpixels[i].h = hfinalpalette[5];}
-      hslpixels[i].s *= s;
-      hslpixels[i].l *=  r;
-    }
-  }
-  if(harmony == "hues"){
-    for (var i = 0; i < hslpixels.length; i++) {
-      hslpixels[i].h *= (hfinalpalette[5] - hfinalpalette[0]);
-      hslpixels[i].h += hfinalpalette[0];
-      if(hslpixels[i].h <= (hfinalpalette[0] + hfinalpalette[1])/2){hslpixels[i].h = hfinalpalette[0];}
-      else if((hfinalpalette[0] + hfinalpalette[1])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[1] + hfinalpalette[2])/2){hslpixels[i].h = hfinalpalette[1];}
-      else if((hfinalpalette[1] + hfinalpalette[2])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[2] + hfinalpalette[3])/2){hslpixels[i].h = hfinalpalette[2];}
-      else if((hfinalpalette[2] + hfinalpalette[3])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[3] + hfinalpalette[4])/2){hslpixels[i].h = hfinalpalette[3];}
-      else if((hfinalpalette[3] + hfinalpalette[4])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[4] + hfinalpalette[5])/2){hslpixels[i].h = hfinalpalette[4];}
-      else if((hfinalpalette[4] + hfinalpalette[5])/2 < hslpixels[i].h && hslpixels[i].h <= hfinalpalette[5]){hslpixels[i].h = hfinalpalette[5];}
-      hslpixels[i].s *= s;
-      hslpixels[i].l *= r;
-    }
-  }
-  if(harmony == "custom"){
-    for (var i = 0; i < hslpixels.length; i++) {
-      hslpixels[i].h *= (hfinalpalette[5] - hfinalpalette[0]);
-      hslpixels[i].h += hfinalpalette[0];
-      if(hslpixels[i].h <= (hfinalpalette[0] + hfinalpalette[1])/2){hslpixels[i].h = hfinalpalette[0];}
-      else if((hfinalpalette[0] + hfinalpalette[1])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[1] + hfinalpalette[2])/2){hslpixels[i].h = hfinalpalette[1];}
-      else if((hfinalpalette[1] + hfinalpalette[2])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[2] + hfinalpalette[3])/2){hslpixels[i].h = hfinalpalette[2];}
-      else if((hfinalpalette[2] + hfinalpalette[3])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[3] + hfinalpalette[4])/2){hslpixels[i].h = hfinalpalette[3];}
-      else if((hfinalpalette[3] + hfinalpalette[4])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[4] + hfinalpalette[5])/2){hslpixels[i].h = hfinalpalette[4];}
-      else if((hfinalpalette[4] + hfinalpalette[5])/2 < hslpixels[i].h && hslpixels[i].h <= hfinalpalette[5]){hslpixels[i].h = hfinalpalette[5];}
-      hslpixels[i].s *= s;
-      hslpixels[i].l *= r;
-    }
+  for (var i = 0; i < hslpixels.length; i++) {
+    hslpixels[i].h *= (hfinalpalette[5] - hfinalpalette[0]);
+    hslpixels[i].h += hfinalpalette[0];
+    if(hslpixels[i].h <= (hfinalpalette[0] + hfinalpalette[1])/2){hslpixels[i].h = hfinalpalette[0];}
+    else if((hfinalpalette[0] + hfinalpalette[1])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[1] + hfinalpalette[2])/2){hslpixels[i].h = hfinalpalette[1];}
+    else if((hfinalpalette[1] + hfinalpalette[2])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[2] + hfinalpalette[3])/2){hslpixels[i].h = hfinalpalette[2];}
+    else if((hfinalpalette[2] + hfinalpalette[3])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[3] + hfinalpalette[4])/2){hslpixels[i].h = hfinalpalette[3];}
+    else if((hfinalpalette[3] + hfinalpalette[4])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[4] + hfinalpalette[5])/2){hslpixels[i].h = hfinalpalette[4];}
+    else if((hfinalpalette[4] + hfinalpalette[5])/2 < hslpixels[i].h && hslpixels[i].h <= hfinalpalette[5]){hslpixels[i].h = hfinalpalette[5];}
+    hslpixels[i].s *= s;
+    hslpixels[i].l *=  r;
   }
 
   for (var i = 0; i < data.length; i+= 4) {
@@ -1349,6 +1330,23 @@ function generateuploadimage(cvs, ctx, imgdata){
   for (var i = 0; i < finalpalette.length; i++) {
     hslfinalpalette[i] = hextohsl(finalpalette[i]);
   }
+  var hfinalpalette = [];
+  for (var i = 0; i < hslfinalpalette.length; i++) {
+    hfinalpalette[i] = hslfinalpalette[i].h;
+  }
+  hfinalpalette.sort(function(a, b){return a-b});
+
+  var sfinalpalette = [];
+  for (var i = 0; i < hslfinalpalette.length; i++) {
+    sfinalpalette[i] = hslfinalpalette[i].s;
+  }
+  sfinalpalette.sort(function(a, b){return a-b});
+
+  var lfinalpalette = [];
+  for (var i = 0; i < hslfinalpalette.length; i++) {
+    lfinalpalette[i] = hslfinalpalette[i].l;
+  }
+  lfinalpalette.sort(function(a, b){return a-b});
   
   var avgpixell = 0;
   for (var i = 0; i < hslpixels.length; i++) {
@@ -1363,12 +1361,6 @@ function generateuploadimage(cvs, ctx, imgdata){
   avgpalettel /= hslfinalpalette.length;
 
   var r = avgpalettel/avgpixell;
-
-  var hfinalpalette = [];
-  for (var i = 0; i < hslfinalpalette.length; i++) {
-    hfinalpalette[i] = hslfinalpalette[i].h;
-  }
-  hfinalpalette.sort(function(a, b){return a-b});
 
   var avgpalettes = 0;
   for (var i = 0; i < hslfinalpalette.length; i++) {
@@ -1385,16 +1377,60 @@ function generateuploadimage(cvs, ctx, imgdata){
   var s = avgpalettes/avgpixels;
 
   for (var i = 0; i < hslpixels.length; i++) {
-    hslpixels[i].h *= (hfinalpalette[5] - hfinalpalette[0]);
-    hslpixels[i].h += hfinalpalette[0];
-    if(hslpixels[i].h <= (hfinalpalette[0] + hfinalpalette[1])/2){hslpixels[i].h = hfinalpalette[0];}
-    else if((hfinalpalette[0] + hfinalpalette[1])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[1] + hfinalpalette[2])/2){hslpixels[i].h = hfinalpalette[1];}
-    else if((hfinalpalette[1] + hfinalpalette[2])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[2] + hfinalpalette[3])/2){hslpixels[i].h = hfinalpalette[2];}
-    else if((hfinalpalette[2] + hfinalpalette[3])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[3] + hfinalpalette[4])/2){hslpixels[i].h = hfinalpalette[3];}
-    else if((hfinalpalette[3] + hfinalpalette[4])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[4] + hfinalpalette[5])/2){hslpixels[i].h = hfinalpalette[4];}
-    else if((hfinalpalette[4] + hfinalpalette[5])/2 < hslpixels[i].h && hslpixels[i].h <= hfinalpalette[5]){hslpixels[i].h = hfinalpalette[5];}
-    hslpixels[i].s *= s;
-    hslpixels[i].l *= r;
+    if(harmony == "shades"){
+      hslpixels[i].h *= (hfinalpalette[5] - hfinalpalette[0]);
+      hslpixels[i].h += hfinalpalette[0];
+      if(hslpixels[i].h <= (hfinalpalette[0] + hfinalpalette[1])/2){hslpixels[i].h = hfinalpalette[0];}
+      else if((hfinalpalette[0] + hfinalpalette[1])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[1] + hfinalpalette[2])/2){hslpixels[i].h = hfinalpalette[1];}
+      else if((hfinalpalette[1] + hfinalpalette[2])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[2] + hfinalpalette[3])/2){hslpixels[i].h = hfinalpalette[2];}
+      else if((hfinalpalette[2] + hfinalpalette[3])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[3] + hfinalpalette[4])/2){hslpixels[i].h = hfinalpalette[3];}
+      else if((hfinalpalette[3] + hfinalpalette[4])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[4] + hfinalpalette[5])/2){hslpixels[i].h = hfinalpalette[4];}
+      else if((hfinalpalette[4] + hfinalpalette[5])/2 < hslpixels[i].h && hslpixels[i].h <= hfinalpalette[5]){hslpixels[i].h = hfinalpalette[5];}
+      hslpixels[i].s *= s;
+      hslpixels[i].l *= r;
+    }
+    if(harmony == "hues"){
+      hslpixels[i].h *= (hfinalpalette[5] - hfinalpalette[0]);
+      hslpixels[i].h += hfinalpalette[0];
+      if(hslpixels[i].h <= (hfinalpalette[0] + hfinalpalette[1])/2){hslpixels[i].h = hfinalpalette[0];}
+      else if((hfinalpalette[0] + hfinalpalette[1])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[1] + hfinalpalette[2])/2){hslpixels[i].h = hfinalpalette[1];}
+      else if((hfinalpalette[1] + hfinalpalette[2])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[2] + hfinalpalette[3])/2){hslpixels[i].h = hfinalpalette[2];}
+      else if((hfinalpalette[2] + hfinalpalette[3])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[3] + hfinalpalette[4])/2){hslpixels[i].h = hfinalpalette[3];}
+      else if((hfinalpalette[3] + hfinalpalette[4])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[4] + hfinalpalette[5])/2){hslpixels[i].h = hfinalpalette[4];}
+      else if((hfinalpalette[4] + hfinalpalette[5])/2 < hslpixels[i].h && hslpixels[i].h <= hfinalpalette[5]){hslpixels[i].h = hfinalpalette[5];}
+
+      if(hslpixels[i].s!=0){
+        hslpixels[i].s *= (sfinalpalette[5] - sfinalpalette[0]);
+        hslpixels[i].s += sfinalpalette[0];
+        if(hslpixels[i].s <= (sfinalpalette[0] + sfinalpalette[1])/2){hslpixels[i].s = sfinalpalette[0];}
+        else if((sfinalpalette[0] + sfinalpalette[1])/2 < hslpixels[i].s && hslpixels[i].s <= (sfinalpalette[1] + sfinalpalette[2])/2){hslpixels[i].s = sfinalpalette[1];}
+        else if((sfinalpalette[1] + sfinalpalette[2])/2 < hslpixels[i].s && hslpixels[i].s <= (sfinalpalette[2] + sfinalpalette[3])/2){hslpixels[i].s = sfinalpalette[2];}
+        else if((sfinalpalette[2] + sfinalpalette[3])/2 < hslpixels[i].s && hslpixels[i].s <= (sfinalpalette[3] + sfinalpalette[4])/2){hslpixels[i].s = sfinalpalette[3];}
+        else if((sfinalpalette[3] + sfinalpalette[4])/2 < hslpixels[i].s && hslpixels[i].s <= (sfinalpalette[4] + sfinalpalette[5])/2){hslpixels[i].s = sfinalpalette[4];}
+        else if((sfinalpalette[4] + sfinalpalette[5])/2 < hslpixels[i].s && hslpixels[i].s <= sfinalpalette[5]){hslpixels[i].s = sfinalpalette[5];}
+      }
+    }
+    if(harmony == "custom"){
+      hslpixels[i].h *= (hfinalpalette[5] - hfinalpalette[0]);
+      hslpixels[i].h += hfinalpalette[0];
+      if(hslpixels[i].h <= (hfinalpalette[0] + hfinalpalette[1])/2){hslpixels[i].h = hfinalpalette[0];}
+      else if((hfinalpalette[0] + hfinalpalette[1])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[1] + hfinalpalette[2])/2){hslpixels[i].h = hfinalpalette[1];}
+      else if((hfinalpalette[1] + hfinalpalette[2])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[2] + hfinalpalette[3])/2){hslpixels[i].h = hfinalpalette[2];}
+      else if((hfinalpalette[2] + hfinalpalette[3])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[3] + hfinalpalette[4])/2){hslpixels[i].h = hfinalpalette[3];}
+      else if((hfinalpalette[3] + hfinalpalette[4])/2 < hslpixels[i].h && hslpixels[i].h <= (hfinalpalette[4] + hfinalpalette[5])/2){hslpixels[i].h = hfinalpalette[4];}
+      else if((hfinalpalette[4] + hfinalpalette[5])/2 < hslpixels[i].h && hslpixels[i].h <= hfinalpalette[5]){hslpixels[i].h = hfinalpalette[5];}
+
+      if(hslpixels[i].s!=0){
+        hslpixels[i].s *= (sfinalpalette[5] - sfinalpalette[0]);
+        hslpixels[i].s += sfinalpalette[0];
+        if(hslpixels[i].s <= (sfinalpalette[0] + sfinalpalette[1])/2){hslpixels[i].s = sfinalpalette[0];}
+        else if((sfinalpalette[0] + sfinalpalette[1])/2 < hslpixels[i].s && hslpixels[i].s <= (sfinalpalette[1] + sfinalpalette[2])/2){hslpixels[i].s = sfinalpalette[1];}
+        else if((sfinalpalette[1] + sfinalpalette[2])/2 < hslpixels[i].s && hslpixels[i].s <= (sfinalpalette[2] + sfinalpalette[3])/2){hslpixels[i].s = sfinalpalette[2];}
+        else if((sfinalpalette[2] + sfinalpalette[3])/2 < hslpixels[i].s && hslpixels[i].s <= (sfinalpalette[3] + sfinalpalette[4])/2){hslpixels[i].s = sfinalpalette[3];}
+        else if((sfinalpalette[3] + sfinalpalette[4])/2 < hslpixels[i].s && hslpixels[i].s <= (sfinalpalette[4] + sfinalpalette[5])/2){hslpixels[i].s = sfinalpalette[4];}
+        else if((sfinalpalette[4] + sfinalpalette[5])/2 < hslpixels[i].s && hslpixels[i].s <= sfinalpalette[5]){hslpixels[i].s = sfinalpalette[5];}
+      }
+    }
   }
 
   for (var i = 0; i < data.length; i+= 4) {
@@ -1895,12 +1931,11 @@ setCSSProperty(orthopalettehues);
 
 huestartindex = harrbaseindex;
 shadestartindex = larrbaseindex;
+customstartindex = harrbaseindex;
 
 for(let i=0; i<33; i++){
   neutrals[i] = hsltohex(ohsl.h, 0, larr[i]);
 }
-
-extremeneutralindex = 1;
 
 generategrid();
 generatepalette();
@@ -2199,11 +2234,11 @@ imagesave.onclick = () => {
   link.download = "Image.png";
 }
 uploadedimagesave1.onclick = () => {
-  const url = uploadcanvas1.toDataURL("image/svg+xml");
+  const url = uploadcanvas1.toDataURL();
   const link = uploadedimagesave1;
   link.href = url;
   link.target = "_blank";
-  link.download = "Image1.svg";
+  link.download = "Image1.png";
 }
 uploadedimagesave2.onclick = () => {
   const url = uploadcanvas2.toDataURL();
@@ -2614,7 +2649,6 @@ function readeronload(event){
           uploadimgdata1 = uploadcontext1.getImageData(0, 0, uploadcanvas1.width, uploadcanvas1.height);
           document.getElementById('uploadedimagecontainer1').style.display = 'block';
           generateuploadimage(uploadcanvas1, uploadcontext1, uploadimgdata1);
-          
         }
       }
 }
@@ -2627,155 +2661,119 @@ function handleImage(e){
   error2 = 0;
   var type = imageLoader.files[0].type;
   var size = imageLoader.files[0].size / 1024 / 1024;
-  if(type!="image/png" && type!="image/jpeg" && type!="image/jpg" && type!="image​/svg+xml"){
-    alert('Please try uploading png/jpg/svg files only :)');
-    error = 1;
-    console.log(type);
+  
+  if(size > 5){
+    alert('One of the file size exceeds 5 MB');
+    error2 = 1;
     return false;
-  }  
-  else{
-    if(size > 5){
-      alert('One of the file size exceeds 5 MB');
-      error2 = 1;
-      return false;
-    }else{
-      var reader = new FileReader();
-      reader.onload = function(event){
-      readeronload(event);
-      }
-      reader.readAsDataURL(e.target.files[0]);  
-      uploadonlytoggle.style.display = "block";
-      if(window.matchMedia("(min-width: 960px)").matches){
-        document.getElementById('uploadcontainer').style.marginLeft = "7vh";
-      }
-      
+  }else{
+    var reader = new FileReader();
+    reader.onload = function(event){
+    readeronload(event);
     }
+    reader.readAsDataURL(e.target.files[0]);  
+    uploadonlytoggle.style.display = "block";
+    if(window.matchMedia("(min-width: 960px)").matches){
+      document.getElementById('uploadcontainer').style.marginLeft = "7vh";
+    }
+      
   }
+  
 }
 function handleImage2(e){
   var type = imageLoader.files[1].type;
   var size = imageLoader.files[1].size / 1024 / 1024;
-  if(type!="image/png" && type!="image/jpeg" && type!="image/jpg" && type!="image/svg"){
-    if(error != 1){
-    alert('Please try uploading png/jpg/svg files only :)');
-    error = 1;
+  
+  if(size > 5){
+    if(error2 != 1){
+      alert('One of the file size exceeds 5 MB');
+      error2 = 1;
     }
     return false;
   }else{
-    if(size > 5){
-      if(error2 != 1){
-        alert('One of the file size exceeds 5 MB');
-        error2 = 1;
-      }
-      return false;
-    }else{
-    var reader = new FileReader();
-    reader.onload = function(event){
-      readeronload(event);
-    }
-    reader.readAsDataURL(e.target.files[1]);  
+  var reader = new FileReader();
+  reader.onload = function(event){
+    readeronload(event);
   }
- }
+  reader.readAsDataURL(e.target.files[1]);  
+}
+ 
 }
 function handleImage3(e){
   var type = imageLoader.files[2].type;
   var size = imageLoader.files[2].size / 1024 / 1024;
-  if(type!="image/png" && type!="image/jpeg" && type!="image/jpg" && type!="image/svg"){
-    if(error != 1){
-      alert('Please try uploading png/jpg/svg files only :)');
-      error = 1;
+  
+  if(size > 5){
+    if(error2 != 1){
+      alert('One of the file size exceeds 5 MB');
+      error2 = 1;
     }
     return false;
   }else{
-    if(size > 5){
-      if(error2 != 1){
-        alert('One of the file size exceeds 5 MB');
-        error2 = 1;
-      }
-      return false;
-    }else{
-    var reader = new FileReader();
-    reader.onload = function(event){
-      readeronload(event);
-    }
-    reader.readAsDataURL(e.target.files[2]);  
+  var reader = new FileReader();
+  reader.onload = function(event){
+    readeronload(event);
   }
- }
+  reader.readAsDataURL(e.target.files[2]);  
+}
+ 
 }
 function handleImage4(e){
   var type = imageLoader.files[3].type;
   var size = imageLoader.files[3].size / 1024 / 1024;
-  if(type!="image/png" && type!="image/jpeg" && type!="image/jpg" && type!="image/svg"){
-    if(error != 1){
-      alert('Please try uploading png/jpg/svg files only :)');
-      error = 1;
+  
+  if(size > 5){
+    if(error2 != 1){
+      alert('One of the file size exceeds 5 MB');
+      error2 = 1;
     }
     return false;
   }else{
-    if(size > 5){
-      if(error2 != 1){
-        alert('One of the file size exceeds 5 MB');
-        error2 = 1;
-      }
-      return false;
-    }else{
-    var reader = new FileReader();
-    reader.onload = function(event){
-      readeronload(event);
-    }
-    reader.readAsDataURL(e.target.files[3]);  
+  var reader = new FileReader();
+  reader.onload = function(event){
+    readeronload(event);
   }
- }
+  reader.readAsDataURL(e.target.files[3]);  
+}
+ 
 }
 function handleImage5(e){
   var type = imageLoader.files[4].type;
   var size = imageLoader.files[4].size / 1024 / 1024;
-  if(type!="image/png" && type!="image/jpeg" && type!="image/jpg" && type!="image/svg"){
-    if(error != 1){
-      alert('Please try uploading png/jpg/svg files only :)');
-      error = 1;
+  
+  if(size > 5){
+    if(error2 != 1){
+      alert('One of the file size exceeds 5 MB');
+      error2 = 1;
     }
     return false;
   }else{
-    if(size > 5){
-      if(error2 != 1){
-        alert('One of the file size exceeds 5 MB');
-        error2 = 1;
-      }
-      return false;
-    }else{
-    var reader = new FileReader();
-    reader.onload = function(event){
-      readeronload(event);
-    }
-    reader.readAsDataURL(e.target.files[4]);  
+  var reader = new FileReader();
+  reader.onload = function(event){
+    readeronload(event);
   }
- }
+  reader.readAsDataURL(e.target.files[4]);  
+}
+ 
 }
 function handleImage6(e){
   var type = imageLoader.files[5].type;
   var size = imageLoader.files[5].size / 1024 / 1024;
-  if(type!="image/png" && type!="image/jpeg" && type!="image/jpg" && type!="image/svg"){
-    if(error != 1){
-      alert('Please try uploading png/jpg/svg files only :)');
-      error = 1;
+  
+  if(size > 5){
+    if(error2 != 1){
+      alert('One of the file size exceeds 5 MB');
+      error2 = 1;
     }
     return false;
   }else{
-    if(size > 5){
-      if(error2 != 1){
-        alert('One of the file size exceeds 5 MB');
-        error2 = 1;
-      }
-      return false;
-    }else{
-    var reader = new FileReader();
-    reader.onload = function(event){
-      readeronload(event);
-    }
-  reader.readAsDataURL(e.target.files[5]);  
+  var reader = new FileReader();
+  reader.onload = function(event){
+    readeronload(event);
   }
- }
+reader.readAsDataURL(e.target.files[5]);  
+}
+ 
 }
 
 uploadonlycheck.onchange = () => {togglelayout();}
