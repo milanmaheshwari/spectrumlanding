@@ -204,7 +204,7 @@ var p = parseInt(localStorage.getItem("repeatvalue") || 0);
 function setscroll(){
   if(p==0){
     if(window.matchMedia("(min-width: 960px)").matches){
-      document.body.scrollTop = vwTOpx(0);
+      flex.scrollTop = vwTOpx(0);
       elementscontainer.style.left = "100vw";
       logo.style.left = "calc(90vw - 12.5vh)";
     }
@@ -215,7 +215,7 @@ function setscroll(){
   }
   if(p==1){
     if(window.matchMedia("(min-width: 960px)").matches){
-      document.body.scrollTop = vwTOpx(85) - vhTOpx(7);
+      flex.scrollTop = vwTOpx(85) - vhTOpx(7);
       elementscontainer.style.left = "100vw";
       logo.style.left = "85vw";
     }
