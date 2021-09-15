@@ -175,22 +175,16 @@ window.addEventListener("wheel", event => {
   var deltaY = event.deltaY;
   var deltaX = event.deltaX;
   if (deltaY > 0 || deltaX > 0) {
-    if(flex.scrollTop < vwTOpx(85)){
-      elementscontainer.style.left = "85vw";
-      elementscontainer.style.transition = '0.5s ease';
-      logo.style.left = "85vw";
-      logo.style.transition = '0.5s ease';
-    }
-    
+    elementscontainer.style.left = "85vw";
+    elementscontainer.style.transition = '0.5s ease';
+    logo.style.left = "85vw";
+    logo.style.transition = '0.5s ease';
   }
   if (deltaY < 0 || deltaX < 0) {
-    if(flex.scrollTop < vwTOpx(10)){
-      elementscontainer.style.left = "100vw";
-      elementscontainer.style.transition = '0.5s ease';
-      logo.style.left = "calc(90vw - 12.5vh)";
-      logo.style.transition = '0.5s ease';
-    }
-    
+    elementscontainer.style.left = "85vw";
+    elementscontainer.style.transition = '0.5s ease';
+    logo.style.left = "85vw";
+    logo.style.transition = '0.5s ease';
   }
   }
 
@@ -204,7 +198,7 @@ var p = parseInt(localStorage.getItem("repeatvalue") || 0);
 function setscroll(){
   if(p==0){
     if(window.matchMedia("(min-width: 960px)").matches){
-      flex.scrollTop = vwTOpx(0);
+      
       elementscontainer.style.left = "100vw";
       logo.style.left = "calc(90vw - 12.5vh)";
     }
@@ -215,7 +209,7 @@ function setscroll(){
   }
   if(p==1){
     if(window.matchMedia("(min-width: 960px)").matches){
-      flex.scrollTop = vwTOpx(85) - vhTOpx(7);
+      
       elementscontainer.style.left = "100vw";
       logo.style.left = "85vw";
     }
