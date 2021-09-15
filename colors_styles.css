@@ -45,6 +45,11 @@
 
 body{
     background-color: #05020B;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+::-webkit-scrollbar {
+    display: none;
 }
 
 @media (min-width: 960px){
@@ -52,22 +57,9 @@ body{
     #flexcontainer{
         position: relative;
         display: flex;
-        width: 100vh;
-        height: 100vw;
-        overflow-x: hidden;
-        -moz-overflow-x: hidden;
-        overflow-y: scroll;
-        -moz-overflow-y: scroll;
-        transform: rotate(270deg) translateX(-100%);
-        -webkit-transform: rotate(270deg) translateX(-100%);
-        -moz-transform: rotate(270deg) translateX(-100%);
-        -ms-transform: rotate(270deg) translateX(-100%);
-        -o-transform: rotate(270deg) translateX(-100%);
-        transform-origin: top left;
-        -webkit-transform-origin: top left;
-        -moz-transform-origin: top left;
-        -ms-transform-origin: top left;
-        -o-transform-origin: top left;
+        width: 100vw;
+        height: 100vh;
+        overflow-y: hidden;
     }
     #flexcontainer::-webkit-scrollbar {
         display: none;
@@ -83,16 +75,6 @@ body{
         }
     }
     #scrollcontainer{
-        transform: rotate(90deg) translateY(-100vh);
-        -webkit-transform: rotate(90deg) translateY(-100vh);
-        -moz-transform: rotate(90deg) translateY(-100vh);
-        -ms-transform: rotate(90deg) translateY(-100vh);
-        -o-transform: rotate(90deg) translateY(-100vh);
-        transform-origin: top left;
-        -webkit-transform-origin: top left;
-        -moz-transform-origin: top left;
-        -ms-transform-origin: top left;
-        -o-transform-origin: top left;
         white-space: unset;
     }
     
