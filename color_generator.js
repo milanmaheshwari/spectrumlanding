@@ -216,7 +216,7 @@ function setscroll(){
   if(p==1){
     if(window.matchMedia("(min-width: 960px)").matches){
       document.body.scrollTop = vwTOpx(85) - vhTOpx(7);
-      elementscontainer.style.left = "85vw";
+      elementscontainer.style.left = "100vw";
       logo.style.left = "85vw";
     }
     else if(window.matchMedia("(max-width: 959px)").matches){
