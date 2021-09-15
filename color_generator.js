@@ -181,9 +181,9 @@ window.addEventListener("wheel", event => {
     logo.style.transition = '0.5s ease';
   }
   if (deltaY < 0 || deltaX < 0) {
-    elementscontainer.style.left = "85vw";
+    elementscontainer.style.left = "100vw";
     elementscontainer.style.transition = '0.5s ease';
-    logo.style.left = "85vw";
+    logo.style.left = "100vw";
     logo.style.transition = '0.5s ease';
   }
   }
