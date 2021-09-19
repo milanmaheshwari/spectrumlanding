@@ -170,6 +170,7 @@ function scroll(){
   }, 640);
 }
 
+/*
 window.addEventListener("wheel", event => {
   if(window.matchMedia("(min-width: 960px)").matches){
   var delta = event.delta;
@@ -185,7 +186,6 @@ window.addEventListener("wheel", event => {
   
 });
 
-/*
 var p = parseInt(localStorage.getItem("repeatvalue") || 0);
 function setscroll(){
   if(p==0){
@@ -2093,7 +2093,6 @@ Array.from(gridcopy).forEach(
 );
 
 if(window.matchMedia("(min-width: 960px)").matches){
-  if(p==0){
     [columncopy[0], columncopy[1], columncopy[2], columncopy[3], columncopy[4], columncopy[5]].forEach((item, index) => {
       item.onmouseover = () => {
           document.getElementsByClassName('columncopytooltip')[index].style.visibility = "visible";
@@ -2102,7 +2101,6 @@ if(window.matchMedia("(min-width: 960px)").matches){
           document.getElementsByClassName('columncopytooltip')[index].style.visibility = "hidden";
       }
     })
-  }
 }
 
 //setbasecolor
