@@ -152,7 +152,7 @@ body{
         position: absolute;
         margin: 0 0 4vh 11vh;
         top: 7vh;
-        left: calc(90vw - 12.5vh);
+        left: 100vw;
         transform: scale(0.9);
         opacity: 0;
     }
