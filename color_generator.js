@@ -170,7 +170,7 @@ function scroll(){
   }, 640);
 }
 
-/*
+
 window.addEventListener("wheel", event => {
   if(window.matchMedia("(min-width: 960px)").matches){
   var delta = event.delta;
@@ -185,6 +185,8 @@ window.addEventListener("wheel", event => {
   }
   
 });
+
+/*
 
 var p = parseInt(localStorage.getItem("repeatvalue") || 0);
 function setscroll(){
