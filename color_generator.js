@@ -169,23 +169,14 @@ function scroll(){
     scrollTop: vwTOpx(100)
   }, 640);
 }
-/*
+
 window.addEventListener("wheel", event => {
   if(window.matchMedia("(min-width: 960px)").matches){
-  var deltaY = event.deltaY;
-  var deltaX = event.deltaX;
-  if (deltaY > 0 || deltaX > 0) {
-    elementscontainer.style.left = "85vw";
-    elementscontainer.style.transition = '0.5s ease';
-    logo.style.left = "85vw";
-    logo.style.transition = '0.5s ease';
-  }
-  if (deltaY < 0 || deltaX < 0) {
-    elementscontainer.style.left = "100vw";
-    elementscontainer.style.transition = '0.5s ease';
-    logo.style.left = "100vw";
-    logo.style.transition = '0.5s ease';
-  }
+  var delta = event.delta;
+  
+  document.body.scrollLeft -= (delta * 30);
+  event.preventDefault();
+  
   }
 
   else if(window.matchMedia("(max-width: 959px)").matches){
@@ -194,6 +185,7 @@ window.addEventListener("wheel", event => {
   
 });
 
+/*
 var p = parseInt(localStorage.getItem("repeatvalue") || 0);
 function setscroll(){
   if(p==0){
