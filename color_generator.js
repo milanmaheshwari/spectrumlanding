@@ -2132,19 +2132,6 @@ Array.from(gridbasecolor).forEach(
 );
 
 
-if(window.matchMedia("(min-width: 960px)").matches){
-  if(p==0){
-    [columnbasecolor[0], columnbasecolor[1], columnbasecolor[2], columnbasecolor[3], columnbasecolor[4], columnbasecolor[5]].forEach((item, index) => {
-      item.onmouseover = () => {
-        document.getElementsByClassName('columnbasetooltip')[index].style.visibility = "visible";
-      }
-      item.onmouseleave = () => {
-        document.getElementsByClassName('columnbasetooltip')[index].style.visibility = "hidden";
-      }
-    })
-  }
-}
-
 
 /*function checkbasecolumn(){
   for(let i=0; i<column.length; i++){
