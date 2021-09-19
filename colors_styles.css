@@ -69,11 +69,7 @@ body{
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
     }
-    @-moz-document url-prefix() {
-        body {
-            overflow-y: hidden;
-        }
-    }
+    
     #scrollcontainer{
         white-space: unset;
     }

@@ -1939,7 +1939,6 @@ generatepalette();
 
 window.addEventListener('load', drawimage(canvas, context));
 window.addEventListener('load', init);
-window.addEventListener('load', setscroll);
 
 document.getElementById('submit').onclick = () => {
   init();
