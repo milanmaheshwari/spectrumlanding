@@ -1755,7 +1755,7 @@
 </script>
 
 <script>
-  $(function() {
+  /*$(function() {
 
 $("body").onmousewheel(function(event, delta) {
 
@@ -1765,7 +1765,15 @@ $("body").onmousewheel(function(event, delta) {
 
 });
 
+});*/
+
+$('body').on('mousewheel', function(event, delta) {
+
+  this.scrollLeft -= (delta * 30);
+  event.preventDefault();
+
 });
+
 </script>
 
 </html>
