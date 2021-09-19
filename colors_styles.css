@@ -141,7 +141,7 @@ body{
     #elements{
         display: flex;
         position: absolute;
-        left: 100vw;
+        left: 90vw;
         opacity: 0;
     }
     #controlcontainer{
@@ -152,7 +152,7 @@ body{
         position: absolute;
         margin: 0 0 4vh 11vh;
         top: 7vh;
-        left: 100vw;
+        left: 90vw;
         transform: scale(0.9);
         opacity: 0;
     }
