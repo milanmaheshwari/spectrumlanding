@@ -169,7 +169,7 @@ function scroll(){
     scrollTop: vwTOpx(100)
   }, 640);
 }
-
+/*
 window.addEventListener("wheel", event => {
   if(window.matchMedia("(min-width: 960px)").matches){
   var deltaY = event.deltaY;
@@ -219,7 +219,7 @@ function setscroll(){
     
   }
 }
-
+*/
 
 //theme
 var t = parseInt(localStorage.getItem("themevalue") || 1);
