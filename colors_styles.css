@@ -69,60 +69,21 @@ body{
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
     }
-    
+    @-moz-document url-prefix() {
+        body {
+            overflow-y: hidden;
+        }
+    }
+
     #scrollcontainer{
         white-space: unset;
     }
-    
-    #home{
-        position: absolute;
-        width: 70vw;
-        top: 10vh;
-        left: 10vh;
-    }
-    #homewelcome{
-        font-family: 'Montserrat', sans-serif;
-        font-size: calc(5vh + 2.5vw);
-        font-weight: 700;
-        color: #814DE5;
-        line-height: 140%;
-        letter-spacing: 0.01em;
-        position: absolute;
-        margin: 0;
-        top: 6vh;
-        opacity: 0;
-    }
-    #homeheader{
-        font-family: 'Montserrat', sans-serif;
-        font-size: calc(5vh + 2.5vw);
-        font-weight: 700;
-        color: #814DE5;
-        line-height: 140%;
-        letter-spacing: 0.01em;
-        position: absolute;
-        margin: 0;
-        top: 12vh;
-        opacity: 0;
-    }
-    #homeheaderappln{
-        color: #FFFFFF;
-    }
-    #homeheaderarrow{
-        position: absolute;
-    }
-    #homeheaderarrowsvg{
-      position: absolute;
-      left: 1vh;
-      display: block;
-      top: calc(1.6vh + 0.8vw);
-      transition: all 1s ease-in-out;
-      animation: arowani 1s infinite;
-    }
     #homeicons{
-        position: absolute;
-        top: 80vh;
-        opacity: 0;
+        position: fixed;
+        top: calc(90vh - 5vh);
+        right: 5vh;
         display: flex;
+        z-index: 999;
     }
     #themeicon, #themeicon2, #twittericon, #bmcicon{
         width: 10vh;
@@ -137,8 +98,7 @@ body{
     #elements{
         display: flex;
         position: absolute;
-        left: 90vw;
-        opacity: 0;
+        left: 7vh;
     }
     #controlcontainer{
         width: 32.5vh;
@@ -148,9 +108,8 @@ body{
         position: absolute;
         margin: 0 0 4vh 11vh;
         top: 7vh;
-        left: 90vw;
+        left: 7vh;
         transform: scale(0.9);
-        opacity: 0;
     }
     #input{
         width: 32.5vh;
@@ -796,7 +755,9 @@ body{
         box-sizing: border-box;
         border-radius: 2vh;
         text-align: center;
+        display: none;
     }
+
     #imageLoader{
         width: 100%;
         height: 100%;
@@ -926,11 +887,140 @@ body{
     #toggleslider:before {
         border-radius: 50%;
     }
+
+    /* Key */
+    #keycontainer{
+        position: relative;
+        margin: 7vh 0 0 7vh;
+        width: 66vh;
+        border: 0.5vh dashed #814DE54D;
+        box-sizing: border-box;
+        border-radius: 2vh;
+        text-align: center;
+    }
+    #keycontainerheader{
+        width: 60vh;
+        margin: 3vh 0 0 3vh;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 3vh;
+        font-weight: 700;
+        text-align: left;
+        line-height: 140%;
+        color: #caaeff;
+    }
+    #uploadgif{
+        background-color: #814DE54D;
+        width: 60vh;
+        height: 33.75vh;
+        margin: 4vh 0 0 3vh;
+        border-radius: 2vh;
+    }
+    #uploadvideo{
+        width: 92%;
+        margin: 4.5% auto;
+        border-radius: 2vh;
+        outline: none;
+    }
+    #keycontainerctas{
+        width: 60vh;
+        height: 8vh;
+        margin: 5vh 0 0 3vh;
+    }
+    #getuploadaccess{
+        background-color: #814DE5;
+        color: #FFFFFF;
+        width: 29vh;
+        height: 8vh;
+        border: 0.4vh solid #814DE5;
+        outline: none;
+        border-radius: 1.5vh;
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2vh;
+        text-align: center;
+        cursor: pointer;
+        margin-right: 1vh;
+    }
+    #seeallplans{
+        background-color: transparent;
+        color: #CAAEFF;
+        width: 29vh;
+        height: 8vh;
+        border: 0.4vh solid #814DE5;
+        outline: none;
+        border-radius: 1.5vh;
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2vh;
+        text-align: center;
+        cursor: pointer;
+    }
+    #keycontainersubheader{
+        width: 60vh;
+        margin: 6vh 0 0 3vh;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2vh;
+        font-weight: 500;
+        text-align: left;
+        line-height: 140%;
+        color: #caaeff;
+        opacity: 0.9;
+    }
+    #keyinput{
+        width: 60vh;
+        height: 8vh;
+        margin: 3vh 0 0 0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.5vh;
+        font-weight: 600;
+        padding-left: 2vh;
+        padding-right: 8vh;
+        color: #caaeff;
+        box-sizing: border-box;
+        border: 0.4vh solid;
+        border-color: #814DE54D;
+        border-radius: 1.5vh;
+        outline: none;
+        background: transparent;
+    }
+    #keyinputplaceholder{
+        position: absolute;
+        top: 74.5vh;
+        left: 5vh;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2vh;
+        font-weight: 600;
+        color: #caaeff4A;
+        z-index: -1;
+    }
+    #submitkeybtn{
+        position: absolute;
+        top: 76vh;
+        right: 5vh;
+        background: transparent;
+        border: transparent;
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
+        outline: none;
+        opacity: 0.5;
+    }
+    #keyinput:focus + button{
+        opacity: 1;
+     }
+    #errormsg{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2vh;
+        font-weight: 600;
+        color: #ff3a3a;
+        margin-left: 2vh;
+    }
     
     /* Grid */
     
     #gridcontainer{
-        margin: 7vh 0 0 10vh;
+        margin: 7vh 10vh 0 10vh;
     }
     #gridcontainer > p{
         display: flex;
@@ -1006,169 +1096,6 @@ body{
     #gridsvg{
         display: none;
     }
-    
-    #footer{
-        margin: 10vh 0 0 20vh;
-        width: 90vw;
-        position: relative;
-    }
-    #footerheader{
-        width: 36vw;
-        margin: 0;
-        font-family: 'Montserrat', sans-serif;
-        font-size: calc(4vh + 2.2vw);
-        font-weight: 700;
-        color: #814DE5;
-        line-height: 144%;
-        letter-spacing: 0.02em;
-    }
-    #footerheadername{
-        color: #CAAEFF;
-    }
-    #uploadcard{
-        width: 15vw;
-        height: 12.93vw;
-        background-color: #814DE5;
-        border-radius: 2vh;
-        position: absolute;
-        top: 0vh;
-        left: 48vw; 
-        transition: 0.2s ease-in-out;
-    }
-    #uploadcard:hover{
-        transform: scale(1.02);
-    }
-    #plugincard{
-        width: 15vw;
-        height: 12.93vw;
-        background-color: #814DE5;
-        border-radius: 2vh;
-        position: absolute;
-        top: 0vh;
-        left: calc(48vw + 12.93vw + 4vw);
-        transition: 0.2s ease-in-out; 
-    }
-    #plugincard:hover{
-        transform: scale(1.02);
-    }
-    .upcomingcards{
-        width: 15vw; 
-        height: 12.93vw;
-     }
-    #separator{
-        position: absolute;
-        top: 36vh;
-        left: 0;
-        width: 80vw;
-        height: 0.25vh;
-        border-width: 0;
-        background-color: #814DE54D;
-    }
-    #footersubheader{
-        width: 36vw;
-        position: absolute;
-        top: 48vh;
-        left: 0;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 3vh;
-        font-weight: 500;
-        color: #814DE5;
-        line-height: 160%;
-        letter-spacing: 0.02em;
-        margin: 0;
-    }
-    #messageinputbox{
-        width: 32vw;
-        height: 12vh;
-        position: absolute;
-        top: 48vh;
-        left: 48vw; 
-        font-family: Montserrat, sans-serif;
-        font-size: 2.5vh;
-        font-weight: 600;
-        padding: 0 4vw 0 2vw;
-        color: #CAAEFF;
-        box-sizing: border-box;
-        border-width: 0.4vh;
-        border-style: solid;
-        border-color: #814DE5AD;
-        border-radius: 2vh;
-        outline: none;
-        background: transparent;
-        background-color: transparent;
-    }
-    #messageinputplaceholder {
-        position: absolute;
-        top: 49vh;
-        left: 50vw; 
-        color: #CAAEFF;
-        opacity: 0.3;
-        font-family: Montserrat, sans-serif;
-        font-size: 2.5vh;
-        font-weight: 600;
-    }
-    #messageinputbox:hover + button{
-        animation: msgsubmitani 1s infinite;
-    }
-    #sendmessagebtn{
-        position: absolute;
-        top: 52vh;
-        left: 76vw; 
-        background: transparent;
-        border: transparent;
-        font-family: 'Montserrat', sans-serif;
-        cursor: pointer;
-        outline: none;
-        transition: all 1s ease-in-out;
-    }
-    #emailtext{
-        position: absolute;
-        top: 72vh;
-        left: 0vw; 
-        margin: 0;
-        font-family: Montserrat, sans-serif;
-        font-size: 2.5vh;
-        font-weight: 500;
-        color: #814DE5;
-        line-height: 144%;
-        letter-spacing: 0.02em;
-    }
-    #emaillink{
-        color: #CAAEFF;
-        text-decoration: none;
-        margin-left: 3.5vh;
-        letter-spacing: -0.01em;
-    }
-    #emaillink:hover{
-        text-decoration: underline;
-    }
-    #linktext{
-        width: 30vw;
-        position: absolute;
-        top: 72vh;
-        left: 48vw; 
-        margin: 0;
-        font-family: Montserrat, sans-serif;
-        font-size: 2.5vh;
-        font-weight: 500;
-        color: #814DE5;
-        line-height: 144%;
-        letter-spacing: 0.02em;
-    }
-    #footerlinks{
-        width: 30vw;
-        position: absolute;
-        top: 72vh;
-        left: 60vw;
-        display: flex;
-    }
-    .faicon{
-        margin-right: 2.5vh;
-    }
-    .faiconimg{
-        width: 4vh; 
-        height: 4vh;
-    }
 
 }
 
@@ -1192,71 +1119,31 @@ body{
       scrollbar-width: none;  /* Firefox */
     }
     
-    #home{
-        position: absolute;
-        width: 90vw;
-        top: 10vh;
-        left: 5vw;
-    }
-    #homewelcome{
-        font-family: 'Montserrat', sans-serif;
-        font-size: 5vh;
-        font-weight: 700;
-        color: #814DE5;
-        line-height: 148%;
-        letter-spacing: 0.02em;
-        position: absolute;
-        margin: 0;
-        top: 12vh;
-        opacity: 0;
-    }
-    #homeheader{
-        font-family: 'Montserrat', sans-serif;
-        font-size: 5vh;
-        font-weight: 700;
-        color: #814DE5;
-        line-height: 148%;
-        letter-spacing: 0.02em;
-        position: absolute;
-        margin: 0;
-        top: 18vh;
-        opacity: 0;
-    }
-    #homeheaderappln{
-        color: #FFFFFF;
-    }
-    #homeheaderarrow{
-        position: absolute;
-        display: none;
-    }
-    #homeheaderarrowsvg{
-      position: absolute;
-      left: 1vh;
-      display: block;
-      top: calc(1.6vh + 0.8vw);
-      transition: all 1s ease-in-out;
-    }
     #homeicons{
-        position: absolute;
-        top: 84vh;
-        opacity: 0;
+        position: fixed;
+        bottom: 2vh;
+        right: 5vw;
         display: flex;
+        z-index: 2;
     }
-    #themeicon, #themeicon2, #twittericon, #bmcicon{
+    #themeicon, #themeicon2{
         width: 8.5vh;
         height: 8.5vh;
-        margin-right: 12px;
+        margin-right: 8px;
         cursor: pointer;
     }
     #themeicon2{
         display: none;
     }
-    
+    #bmcicon{
+        width: 8.5vh;
+        height: 8.5vh;
+        cursor: pointer;
+    }
     #elements{
         position: absolute;
         left: 5vw;
-        top: 100vh;
-        opacity: 0;
+        top: 8vh;
     }
     #controlcontainer{
         width: 90vw;
@@ -1268,18 +1155,18 @@ body{
         position: absolute;
         margin: 0 0 4vh 0;
         top: 4vh;
-        right: 20vw;
+        left: calc(50vw - 6vh);
+        transform: translateX(-50%);
         transform: scale(0.9);
-        opacity: 0;
     }
     #input{
-        width: 84vw;
+        width: 90vw;
         height: 10vh;
         position: relative;
-        margin: 0 0 0 3vw;
+        margin: 0;
     }
     #inputcolor{
-        width: 84vw;
+        width: 90vw;
         height: 10vh;
         font-family: 'Montserrat', sans-serif;
         font-size: 20px;
@@ -1990,11 +1877,144 @@ body{
     #toggleslider:before {
         border-radius: 50%;
     }
+
+    /* Key */
+    #keycontainer{
+        margin: 6vh 0 0 0;
+        width: 90vw;
+        border: 0.5vh dashed #814DE54D;
+        box-sizing: border-box;
+        border-radius: 2vh;
+    }
+    #keycontainerheader{
+        width: 80vw;
+        margin: 3vh 0 0 5vw;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        text-align: left;
+        line-height: 140%;
+        color: #caaeff;
+    }
+    #uploadgif{
+        background-color: #814DE54D;
+        width: 80vw;
+        height: 40vw;
+        margin: 4vh 0 0 4vw;
+        border-radius: 2vh;
+    }
+    #uploadvideo{
+        width: 100%;
+        margin: 0;
+        border-radius: 2vh;
+        outline: none;
+    }
+    #keycontainerctas{
+        width: 80vw;
+        height: 18vh;
+        margin: 5vh 0 0 4vw;
+    }
+    #getuploadaccess{
+        background-color: #814DE5;
+        color: #FFFFFF;
+        width: 80vw;
+        height: 8vh;
+        border: 2px solid #814DE5;
+        outline: none;
+        border-radius: 12px;
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+        margin-bottom: 2vh;
+    }
+    #seeallplans{
+        background-color: transparent;
+        color: #CAAEFF;
+        width: 80vw;
+        height: 8vh;
+        border: 2px solid #814DE5;
+        outline: none;
+        border-radius: 12px;
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+    }
+    #keycontainersubheader{
+        width: 80vw;
+        margin: 5vh 0 0 4vw;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: left;
+        line-height: 140%;
+        color: #caaeff;
+        opacity: 0.9;
+    }
+    #keyinputcontainer{
+        width: 80vw;
+        height: 10vh;
+        position: relative;
+        margin: 2vh 0 3vh 4vw;
+    }
+    #keyinput{
+        width: 80vw;
+        height: 10vh;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        padding-left: 2vw;
+        padding-right: 10vw;
+        color: #caaeff;
+        box-sizing: border-box;
+        border: 2px solid;
+        border-color: #814DE54D;
+        border-radius: 12px;
+        outline: none;
+        background: transparent;
+    }
+    #keyinputplaceholder{
+        position: absolute;
+        top: 4vh;
+        left: 4vw;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #caaeff4A;
+        z-index: -1;
+        margin: 0;
+    }
+    #submitkeybtn{
+        position: absolute;
+        top: 3.5vh;
+        right: 4vw;
+        background: transparent;
+        border: transparent;
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
+        outline: none;
+        opacity: 0.5;
+    }
+    #keyinput:focus + button{
+        opacity: 1;
+     }
+    #errormsg{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #ff3a3a;
+        margin-left: 5vw;
+    }
     
     /* Grid */
     
     #gridcontainer{
-        margin: 8vh 0 0 0;
+        margin: 8vh 0 4vh 0;
     }
     #gridcontainer > p{
         display: flex;
@@ -2006,7 +2026,7 @@ body{
         color: #FFFFFF;
     }
     #gridsave{
-        margin: -2.5vw 0 0 2vw;
+        margin: -3vw 0 0 2vw;
         background: transparent;
         border: transparent;
         cursor: pointer;
@@ -2045,149 +2065,4 @@ body{
     #gridsvg{
         display: none;
     }
-    
-    #footer{
-        margin: 8vh 0 0 0;
-        width: 90vw;
-        position: relative;
-    }
-    #footerheader{
-        width: 90vw;
-        margin: 0;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 32px;
-        font-weight: 700;
-        color: #814DE5;
-        line-height: 144%;
-        letter-spacing: 0.02em;
-    }
-    #footerheadername{
-        color: #CAAEFF;
-    }
-    #uploadcard{
-        width: 90vw;
-        height: 77.5862vw;
-        background-color: #814DE5;
-        border-radius: 2vh;
-        transition: 0.2s ease-in-out;
-        margin: 4vh 0 0 0;
-    }
-    #plugincard{
-        width: 90vw;
-        height: 77.5862vw;
-        background-color: #814DE5;
-        border-radius: 2vh;
-        transition: 0.2s ease-in-out; 
-        margin: 4vh 0 0 0;
-    }
-    .upcomingcards{
-       width: 90vw; 
-       height: 77.5862vw;
-    }
-    #separator{
-        margin: 6vh 0 0 0;
-        width: 90vw;
-        height: 2px;
-        border-width: 0;
-        background-color: #814DE54D;
-    }
-    #footersubheader{
-        margin: 4vh 0 0 0;
-        width: 90vw;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        font-weight: 500;
-        color: #814DE5;
-        line-height: 160%;
-        letter-spacing: 0.02em;
-    }
-    #feedbackform{
-        position: relative;
-        height: 12vh;
-        margin: 4vh 0 0 0;
-    }
-    #messageinputbox{
-        position: absolute;
-        width: 90vw;
-        height: 12vh;
-        font-family: Montserrat, sans-serif;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 0 8vw 0 4vw;
-        color: #CAAEFF;
-        box-sizing: border-box;
-        border-width: 0.4vh;
-        border-style: solid;
-        border-color: #814DE5AD;
-        border-radius: 2vh;
-        outline: none;
-        background: transparent;
-        background-color: transparent;
-    }
-    #messageinputplaceholder {
-        position: absolute;
-        top: 0.5vh;
-        left: 4vw;
-        color: #CAAEFF;
-        opacity: 0.3;
-        font-family: Montserrat, sans-serif;
-        font-size: 14px;
-        font-weight: 600;
-    }
-    #messageinputbox:hover + button{
-        animation: msgsubmitani 1s infinite;
-    }
-    #sendmessagebtn{
-        position: absolute;
-        top: 2vh;
-        right: 4vw;
-        background: transparent;
-        border: transparent;
-        font-family: 'Montserrat', sans-serif;
-        cursor: pointer;
-        outline: none;
-        transition: all 1s ease-in-out;
-    }
-    #emailtext{
-        margin: 6vh 0 0 0;
-        font-family: Montserrat, sans-serif;
-        font-size: 16px;
-        font-weight: 500;
-        color: #814DE5;
-        line-height: 144%;
-        letter-spacing: 0.02em;
-    }
-    #emaillink{
-        display: block;
-        color: #CAAEFF;
-        text-decoration: none;
-        margin: 2vh 0 0 0;
-        letter-spacing: -0.01em;
-    }
-    #emaillink:hover{
-        text-decoration: underline;
-    }
-    #linktext{
-        margin: 4vh 0 0 0;
-        width: 90vw;
-        font-family: Montserrat, sans-serif;
-        font-size: 16px;
-        font-weight: 500;
-        color: #814DE5;
-        line-height: 144%;
-        letter-spacing: 0.02em;
-    }
-    #footerlinks{
-        margin: 2vh 0 6vh 0;
-        width: 90vw;
-        display: flex;
-    }
-    .faicon{
-        margin-right: 4vw;
-    }
-    .faiconimg{
-        width: 10vw; 
-        height: 10vw;
-    }
-
 }

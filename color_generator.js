@@ -100,11 +100,10 @@ const contenticoncircle = document.getElementsByClassName('contenticoncircle');
 const themetoggle = document.getElementById('themeicon');
 const themetoggle2 = document.getElementById('themeicon2');
 
-const footerheader = document.getElementById('footerheader');
-const footerheadername = document.getElementById('footerheadername');
-const footersubheader = document.getElementById('footersubheader');
-const messageinputbox = document.getElementById('messageinputbox');
-const messageinputplaceholder = document.getElementById('messageinputplaceholder');
+
+const keyinput = document.getElementById('keyinput');
+const keyinputplaceholder = document.getElementById('keyinputplaceholder');
+const submitkeyarrow = document.getElementById('submitkeyarrow');
 
 const imageLoader = document.getElementById('imageLoader');
 const uploadcanvas1 = document.getElementById('uploadedimagecanvas1');
@@ -141,6 +140,26 @@ const uploadedimagecontainer4 = document.getElementById('uploadedimagecontainer4
 const uploadedimagecontainer5 = document.getElementById('uploadedimagecontainer5');
 const uploadedimagecontainer6 = document.getElementById('uploadedimagecontainer6');
 
+//verification
+function retrievekey(){
+  var k = localStorage.getItem('storedkey') || '0';
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  var requestOptions = {
+    method: "post",
+    headers: myHeaders,
+    redirect: "follow",
+  };
+
+  var url = "https://api.gumroad.com/v2/licenses/verify?product_permalink=Dphij&license_key=" + k;
+
+  fetch(url, requestOptions)
+    .then(response => response.text())
+    .then(result => verify(result, k))
+    .catch(error => verify(error, k));
+}
+
 //scroll
 function vwTOpx(value) {
   var w = window,
@@ -170,50 +189,7 @@ function scroll(){
   }, 640);
 }
 
-
-window.addEventListener("wheel", event => {
-  if(window.matchMedia("(min-width: 960px)").matches){
-  var delta = event.delta;
-  
-  document.body.scrollLeft -= (delta * 30);
-  event.preventDefault();
-  
-  }
-
-  else if(window.matchMedia("(max-width: 959px)").matches){
-    mobheaderscroll();
-  }
-  
-});
-
-/*
-
 var p = parseInt(localStorage.getItem("repeatvalue") || 0);
-function setscroll(){
-  if(p==0){
-    if(window.matchMedia("(min-width: 960px)").matches){
-      
-      elementscontainer.style.left = "100vw";
-      logo.style.left = "calc(90vw - 12.5vh)";
-    }
-    else if(window.matchMedia("(max-width: 959px)").matches){
-      flex.scrollTop = vhTOpx(0);
-    }
-    localStorage.setItem('repeatvalue','1');
-  }
-  if(p==1){
-    if(window.matchMedia("(min-width: 960px)").matches){
-      
-      elementscontainer.style.left = "100vw";
-      logo.style.left = "85vw";
-    }
-    else if(window.matchMedia("(max-width: 959px)").matches){
-      flex.scrollTop = vhTOpx(100);
-    }
-    
-  }
-}
-*/
 
 //theme
 var t = parseInt(localStorage.getItem("themevalue") || 1);
@@ -649,24 +625,19 @@ function generatecontrolpanel(){
     submitarrow.setAttribute('fill', darkhex);
     document.getElementById('themeicon').style.display = "block";
     document.getElementById('themeicon2').style.display = "none";
-    document.getElementById('themeiconpath').setAttribute('fill', darkhex);
-    for(let i=0; i<9; i++){
+    //document.getElementById('themeiconpath').setAttribute('fill', darkhex);
+    /*for(let i=0; i<9; i++){
       document.getElementsByClassName('themeiconpath2')[i].setAttribute('fill', darkhex);
-     }
-
-    document.getElementById('twittericonpath').setAttribute('fill', darkhex);
-    document.getElementById('homewelcometitle').style.color = darkhex;
-    document.getElementById('homeheaderappln').style.color = darkhex;
-    document.getElementById('homeheaderarrowsvgpath').setAttribute('fill', darkhex);
+     }*/
     document.getElementById('gridsavepath').setAttribute('fill', darkhex); 
     document.getElementById('gridsaverect').setAttribute('fill', darkhex); 
 
-    footerheadername.style.color = darkhex;
-    messageinputbox.style.color = darkhex;
-    messageinputplaceholder.style.color = darkhex;
-    document.getElementById('sendmessagebtn').style.color = darkhex;
-    document.getElementById('emaillink').style.color = darkhex;
-    document.getElementById('messagesubmitarrowpath').setAttribute('fill', darkhex);
+    document.getElementById('keycontainerheader').style.color = darkhex;
+    document.getElementById('keycontainersubheader').style.color = darkhex;
+    document.getElementById('seeallplans').style.color = darkhex;
+    document.getElementById('keyinput').style.color = darkhex;
+    document.getElementById('keyinputplaceholder').style.color = darkhex + "4A";
+    submitkeyarrow.setAttribute('fill', darkhex);
 
     document.getElementById('toggletext').style.color = darkhex;
     document.getElementById('uploadtitle').style.color = darkhex;
@@ -700,24 +671,19 @@ function generatecontrolpanel(){
     submitarrow.setAttribute('fill', lighthex);
     document.getElementById('themeicon').style.display = "none";
     document.getElementById('themeicon2').style.display = "block";
-    document.getElementById('themeiconpath').setAttribute('fill', lighthex);
-    for(let i=0; i<9; i++){
+    //document.getElementById('themeiconpath').setAttribute('fill', lighthex);
+    /*for(let i=0; i<9; i++){
      document.getElementsByClassName('themeiconpath2')[i].setAttribute('fill', lighthex);
-    }
-
-    document.getElementById('twittericonpath').setAttribute('fill', lighthex);
-    document.getElementById('homewelcometitle').style.color = lighthex;
-    document.getElementById('homeheaderappln').style.color = lighthex;
-    document.getElementById('homeheaderarrowsvgpath').setAttribute('fill', lighthex);
+    }*/
     document.getElementById('gridsavepath').setAttribute('fill', lighthex); 
     document.getElementById('gridsaverect').setAttribute('fill', lighthex); 
 
-    footerheadername.style.color = lighthex;
-    messageinputbox.style.color = lighthex;
-    messageinputplaceholder.style.color = lighthex;
-    document.getElementById('sendmessagebtn').style.color = lighthex;
-    document.getElementById('emaillink').style.color = lighthex;
-    document.getElementById('messagesubmitarrowpath').setAttribute('fill', lighthex);
+    document.getElementById('keycontainerheader').style.color = lighthex;
+    document.getElementById('keycontainersubheader').style.color = lighthex;
+    document.getElementById('seeallplans').style.color = lighthex;
+    document.getElementById('keyinput').style.color = lighthex;
+    document.getElementById('keyinputplaceholder').style.color = lighthex + "4A";
+    submitkeyarrow.setAttribute('fill', lighthex);
 
     document.getElementById('toggletext').style.color = lighthex;
     document.getElementById('uploadtitle').style.color = lighthex;
@@ -734,21 +700,16 @@ function generatecontrolpanel(){
   document.getElementById('harmonylistcontainer').style.backgroundColor = inputcolor.value + "4D";
   document.getElementById('sliders').style.backgroundColor = inputcolor.value + "4D";
   inputcolor.style.borderColor = inputcolor.value + "4D";
-  document.getElementById('homewelcome').style.color = inputcolor.value; 
-  document.getElementById('homeheader').style.color = inputcolor.value; 
-  document.getElementById('themeiconcircle').setAttribute('fill',inputcolor.value + "4D"); 
-  document.getElementById('themeiconcircle2').setAttribute('fill',inputcolor.value + "4D"); 
-  document.getElementById('twittericoncircle').setAttribute('fill',inputcolor.value + "4D");
+  document.getElementById('themeiconcircle').setAttribute('fill',inputcolor.value); 
+  document.getElementById('themeiconcircle2').setAttribute('fill',inputcolor.value); 
   document.getElementById('bmciconcircle').setAttribute('fill',inputcolor.value);
 
-  footerheader.style.color = inputcolor.value;
-  footersubheader.style.color = inputcolor.value;
-  messageinputbox.style.borderColor = inputcolor.value + "4D";
-  document.getElementById('emailtext').style.color = inputcolor.value;
-  document.getElementById('linktext').style.color = inputcolor.value;
-  document.getElementById('plugincard').style.backgroundColor = inputcolor.value;
-  document.getElementById('uploadcard').style.backgroundColor = inputcolor.value;
-  document.getElementById('separator').style.backgroundColor = inputcolor.value + "4D";
+  document.getElementById('keycontainer').style.borderColor = inputcolor.value + "4D";
+  document.getElementById('uploadgif').style.backgroundColor = inputcolor.value + "4D";
+  document.getElementById('getuploadaccess').style.backgroundColor = inputcolor.value;
+  document.getElementById('getuploadaccess').style.borderColor = inputcolor.value;
+  document.getElementById('seeallplans').style.borderColor = inputcolor.value;
+  document.getElementById('keyinput').style.borderColor = inputcolor.value + "4D";
 
   document.getElementById('uploadcontainer').style.borderColor = inputcolor.value + "4D";
   document.getElementById('uploadonlytoggle').style.backgroundColor = inputcolor.value + "4D";
@@ -799,7 +760,7 @@ function generatecontrolpanel(){
   }
 }
 
-[inputcolor, messageinputbox].forEach(item => {
+[inputcolor].forEach(item => {
   item.onfocus = () => {
     item.style.borderColor = inputcolor.value;
   }
@@ -807,26 +768,25 @@ function generatecontrolpanel(){
     item.style.borderColor = inputcolor.value + "4D";
   }
 })
+keyinput.onfocus = () => {
+  keyinputplaceholder.style.display = "none";
+  keyinput.style.borderColor = inputcolor.value;
+  f=1;
+}
+keyinput.onblur = () => {
+  keyinput.style.borderColor = inputcolor.value + "4D";
+  f=0;
+  if(keyinput.value == ""){
+    keyinputplaceholder.style.display = "block";
+  }else{
+    keyinputplaceholder.style.display = "none";
+  }
+}
 document.getElementById('uploadcontainer').onmouseover = () => {
   document.getElementById('uploadcontainer').style.borderColor = inputcolor.value;
 }
 document.getElementById('uploadcontainer').onmouseout = () => {
   document.getElementById('uploadcontainer').style.borderColor = inputcolor.value + "4D"; 
-}
-
-messageinputbox.onfocus = () => {
-  messageinputplaceholder.style.display = "none";
-  messageinputbox.style.borderColor = inputcolor.value;
-  f=1;
-}
-messageinputbox.onblur = () => {
-  messageinputbox.style.borderColor = inputcolor.value + "4D";
-  f=0;
-  if(messageinputbox.value == ""){
-    messageinputplaceholder.style.display = "block";
-  }else{
-    messageinputplaceholder.style.display = "none";
-  }
 }
 
 function generategradient(){
@@ -1933,6 +1893,7 @@ generatepalette();
 
 window.addEventListener('load', drawimage(canvas, context));
 window.addEventListener('load', init);
+window.addEventListener('load', retrievekey);
 
 document.getElementById('submit').onclick = () => {
   init();
@@ -2095,6 +2056,7 @@ Array.from(gridcopy).forEach(
 );
 
 if(window.matchMedia("(min-width: 960px)").matches){
+  if(p==0){
     [columncopy[0], columncopy[1], columncopy[2], columncopy[3], columncopy[4], columncopy[5]].forEach((item, index) => {
       item.onmouseover = () => {
           document.getElementsByClassName('columncopytooltip')[index].style.visibility = "visible";
@@ -2103,6 +2065,7 @@ if(window.matchMedia("(min-width: 960px)").matches){
           document.getElementsByClassName('columncopytooltip')[index].style.visibility = "hidden";
       }
     })
+  }
 }
 
 //setbasecolor
@@ -2133,6 +2096,19 @@ Array.from(gridbasecolor).forEach(
   }
 );
 
+
+if(window.matchMedia("(min-width: 960px)").matches){
+  if(p==0){
+    [columnbasecolor[0], columnbasecolor[1], columnbasecolor[2], columnbasecolor[3], columnbasecolor[4], columnbasecolor[5]].forEach((item, index) => {
+      item.onmouseover = () => {
+        document.getElementsByClassName('columnbasetooltip')[index].style.visibility = "visible";
+      }
+      item.onmouseleave = () => {
+        document.getElementsByClassName('columnbasetooltip')[index].style.visibility = "hidden";
+      }
+    })
+  }
+}
 
 
 /*function checkbasecolumn(){
@@ -2526,6 +2502,9 @@ imageLoader.addEventListener('change', handleImage3, false);
 imageLoader.addEventListener('change', handleImage4, false);
 imageLoader.addEventListener('change', handleImage5, false);
 imageLoader.addEventListener('change', handleImage6, false);
+imageLoader.onclick = function () {
+  this.value = null;
+};
 
 function readeronload(event){
   var image = new Image();
@@ -2826,7 +2805,7 @@ function togglelayout(){
 //mobilehamburger
 function mobheaderscroll(){
   if(window.matchMedia("(max-width: 959px)").matches){
-    if(flex.scrollTop >= vhTOpx(100)){
+    if(flex.scrollTop >= vhTOpx(50)){
       document.getElementById('mobileheader').style.opacity = "1";
       document.getElementById('mobileheader').style.height = "24vw";
       document.getElementById('controls').style.display = "none";
@@ -2864,5 +2843,58 @@ document.getElementById('hamburger').onclick = () => {
     }
     
   }
+}
+
+//verification
+
+function verify(text, key){
+  const obj = JSON.parse(text);
+  var success = obj.success;
+  var uses = obj.uses;
+  if(success == true){
+    document.getElementById('keycontainer').style.display = "none";
+    document.getElementById('uploadcontainer').style.display = "block";
+  }
+  if(success == false){
+    document.getElementById('keycontainer').style.display = "block";
+    document.getElementById('uploadcontainer').style.display = "none";
+  }
+  console.log(uses);
+}
+
+function verifyonclick(text, key){
+  const obj = JSON.parse(text);
+  var success = obj.success;
+  var uses = obj.uses;
+  if(success == true){
+    document.getElementById('keycontainer').style.display = "none";
+    document.getElementById('uploadcontainer').style.display = "block";
+
+    localStorage.setItem('storedkey', key);
+  }
+  if(success == false){
+    document.getElementById('errormsg').innerHTML = "Invalid key!";
+  }
+  console.log(uses);
+}
+
+document.getElementById('submitkeybtn').onclick = () => {
+
+  var key = document.getElementById('keyinput').value;
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  var requestOptions = {
+    method: "post",
+    headers: myHeaders,
+    redirect: "follow",
+  };
+
+  var url = "https://api.gumroad.com/v2/licenses/verify?product_permalink=Dphij&license_key=" + key;
+
+  fetch(url, requestOptions)
+    .then(response => response.text())
+    .then(result => verifyonclick(result, key))
+    .catch(error => verifyonclick(error, key));
 }
 

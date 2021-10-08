@@ -1,0 +1,1309 @@
+body{
+    background-color: #05020B;
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+body{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+@media (min-width: 960px){
+
+#flexcontainer{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#flexcontainer::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+#flexcontainer {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#logo{
+    position: relative;
+    margin: 0;
+    top: 8vh;
+    left: calc(50vw - 6vh);
+}
+#homeheader{
+    width: 68vw;
+    font-family: 'Inter', sans-serif;
+    font-size: 72px;
+    font-weight: 800;
+    color: #814DE5;
+    line-height: 130%;
+    letter-spacing: 0.01em;
+    text-align: center;
+    margin: 12vh auto 0;
+}
+#homeheaderappln{
+    color: #CAAEFF;
+}
+#ctas{
+    width: 70vw;
+    text-align: center;
+    margin: 14vh auto 0;
+}
+#headerprimarycta{
+    background-color: #814DE5;
+    color: #FFFFFF;
+    width: 300px;
+    height: 64px;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 24px;
+}
+#headerseccta{
+    background-color: transparent;
+    color: #CAAEFF;
+    width: 300px;
+    height: 64px;
+    padding: 12px;
+    border: 2px solid #814DE54D;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+}
+
+#videocontainer{
+    width: 80vw;
+    padding: 0;
+    background-color: #814DE50D;
+    border: 0.5vh solid #814DE51A;
+    border-radius: 4vh;
+    outline: none;
+    margin: 16vh auto 0;
+}
+#video{
+    border-radius: 4vh;
+    outline: none;
+}
+
+.header{
+    font-family: 'Inter', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #CAAEFF;
+    line-height: 120%;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin: 0 0 2vh 0;
+}
+.subheader{
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #CAAEFF;
+    line-height: 152%;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin: 4vh 0 0 0;
+}
+#feature1{
+    width: 90vw;
+    display: flex;
+    margin: 32vh 0 0 10vw;
+}
+#feature1text{
+    position: relative;
+    vertical-align: middle;
+    width: 30vw;
+}
+#f1text{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#feature1video{
+    width: 50vw;
+    height: 28.125vw;
+    padding: 0;
+    margin-left: 10vw;
+    position: relative;
+}
+#f1video{
+    background-color: #814DE50D;
+    border: 0.5vh solid #814DE51A;
+    border-radius: 4vh 0 0 4vh;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#feature2{
+    width: 90vw;
+    display: flex;
+    margin: 32vh 0 0 10vw;
+}
+#feature2text{
+    position: relative;
+    vertical-align: middle;
+    width: 30vw;
+    margin-left: 50vw;
+}
+#f2text{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#feature2video{
+    width: 50vw;
+    height: 28.125vw;
+    padding: 0;
+    margin-left: -90vw;
+    position: relative;
+}
+#f2video{
+    background-color: #814DE50D;
+    border: 0.5vh solid #814DE51A;
+    border-radius: 0 4vh 4vh 0;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#f2cta{
+    position: relative;
+    background-color: transparent;
+    color: #CAAEFF;
+    width: 300px;
+    height: 64px;
+    padding: 12px;
+    border: 2px solid #814DE54D;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+    margin: 5vh 0 0 0;
+}
+#f2ctalogo{
+    position: absolute;
+    top: 16px;
+    left: 36px;
+}
+#f2ctatext{
+    position: absolute;
+    width: 90%;
+    top: 19px;
+    left: 52%;
+    transform: translateX(-50%);
+}
+
+#pricing{
+    margin: 24vh auto 0;
+    padding-top: 8vh;
+}
+#priceheader{
+    width: 70vw;
+    text-align: center;
+    margin: 0 auto;
+}
+#pricesubheader{
+    width: 90vw;
+    text-align: center;
+    margin: 4vh auto;
+}
+.priceamount{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #CAAEFF;
+    line-height: 120%;
+    letter-spacing: 0.01em;
+    margin: 10% 0 10% 0;
+    text-align: center;
+}
+.strikedprice{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #CAAEFF;
+    line-height: 120%;
+    letter-spacing: 0.01em;
+    margin: 10% 0 10% 0;
+    text-align: center;
+    opacity: 0.5;
+}
+.pricetitle{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #CAAEFF;
+    line-height: 140%;
+    letter-spacing: 0.02em;
+    text-align: left;
+    width: 90%;
+    margin: 4% 0 0 5%;
+}
+.pricetick{
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 1px;
+    margin: 0 4px 0 0;
+}
+#strikedprice{
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #CAAEFF;
+    line-height: 120%;
+    letter-spacing: 0.01em;
+    margin: 0 0 0 12px;
+    opacity: 0.5;
+}
+.pricecta{
+    background-color: #814DE5;
+    color: #FFFFFF;
+    width: 90%;
+    height: 64px;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 0 8% 5%;
+}
+.priceseccta{
+    background-color: transparent;
+    color: #CAAEFF;
+    width: 90%;
+    height: 64px;
+    padding: 12px;
+    border: 2px solid #814DE54D;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 0 8% 5%;
+}
+#priceboxes{
+    display: flex;
+    width: 90vw;
+    margin: 16vh auto;
+}
+#pricebox1container{
+    position: relative;
+    width: 28vw;
+}
+#pricebox1{
+    position: absolute;
+    background-color: #814DE50D;
+    border: none;
+    box-shadow: 0 0 0 0.5vh #814DE51A;
+    border-radius: 2vh;
+    outline: none;
+    width: 28vw;
+    height: 100%;
+   
+}
+#starter{
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #814DE5;
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding: 1.2vh;
+    background-color: #814DE50D;
+    margin: 0 -0.5vh;
+    border-radius: 2vh 2vh 0 0;
+}
+
+#pricebox2container{
+    position: relative;
+    width: 30vw;
+    margin-left: 2vw;
+}
+#pricebox2{
+    position: relative;
+    top: -0.5vh;
+    background-color: #814DE50D;
+    border: none;
+    box-shadow: 0 0 0 0.5vh #814DE5;
+    border-radius: 2vh;
+    outline: none;
+    width: 30vw;
+    padding-bottom: 10%;
+}
+#deal{
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #05020B;
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding: 1.2vh;
+    background-color: #FF9F3D;
+    margin: 0 -0.5vh;
+    top: -0.5vh;
+    border-radius: 2vh 2vh 0 0;
+}
+.priceoff{
+    position: absolute;
+    right: 5%;
+}
+
+#pricebox3container{
+    position: relative;
+    width: 28vw;
+    margin-left: 2vw;
+}
+#pricebox3{
+    position: absolute;
+    background-color: #814DE50D;
+    border: none;
+    box-shadow: 0 0 0 0.5vh #814DE51A;
+    border-radius: 2vh;
+    outline: none;
+    width: 28vw;
+    height: 100%;
+    
+}
+#team{
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #814DE5;
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding: 1.2vh;
+    background-color: #814DE50D;
+    margin: 0 -0.5vh;
+    border-radius: 2vh 2vh 0 0;
+}
+
+#priceinfo{
+    width: 50vw;
+    text-align: center;
+    margin: 16vh auto;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    opacity: 0.7;
+}
+
+#socialproof{
+    margin: 32vh auto 0;
+}
+#socialheader{
+    width: 70vw;
+    text-align: center;
+    margin: 0 auto;
+}
+#socialsubheader{
+    width: 50vw;
+    text-align: center;
+    margin: 4vh auto;
+}
+#socialboxes{
+    width: 72vw;
+    margin: 16vh auto;
+}
+.socialboxes{
+    display: flex;
+    flex-flow: row;
+    width: 72vw;
+    margin-top: 2.5vw;
+}
+.socialbox{
+    background-color: #814DE50D;
+    border: 0.5vh solid #814DE51A;
+    border-radius: 2vh;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+#socialboxes a{
+    text-decoration: none;
+}
+.socialbox:hover{
+    border: 0.5vh solid #814DE54D;
+}
+.socialbox:hover svg.socialicon{
+    opacity: 1;
+}
+.socialbox:hover svg.socialiconreddit{
+    opacity: 1;
+}
+.socialbox:hover p.usercomment{
+    opacity: 0.9;
+}
+.socialbox:hover p.usercommentsmall{
+    opacity: 0.9;
+}
+.socialbox:hover p.usercommentreddit{
+    opacity: 0.9;
+}
+.socialbox:hover p.username{
+    opacity: 1;
+}
+.socialbox:hover p.usernamesmall{
+    opacity: 1;
+}
+.socialicon{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 10%;
+    right: 5%;
+    opacity: 0.7;
+    transition: all 0.2s ease-in-out;
+}
+.socialiconreddit{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 14%;
+    right: 5%;
+    opacity: 0.7;
+    transition: all 0.2s ease-in-out;
+}
+.userimage{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 10%;
+    left: 5%;
+    transition: all 0.2s ease-in-out;
+}
+.username{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    line-height: 140%;
+    letter-spacing: 0.02em;
+    text-align: left;
+    opacity: 0.9;
+    margin: 5% 0 0 80px;
+    transition: all 0.2s ease-in-out;
+}
+.usersource{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #CAAEFF;
+    line-height: 140%;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin: 2px 0 0 80px;
+    transition: all 0.2s ease-in-out;
+}
+.usercomment{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 145%;
+    letter-spacing: 0.02em;
+    text-align: left;
+    opacity: 0.7;
+    margin: 5%;
+    transition: all 0.2s ease-in-out;
+}
+.usersourcesmall{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #CAAEFF;
+    line-height: 140%;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin: 2px 0 0 72px;
+    transition: all 0.2s ease-in-out;
+}
+.usernamesmall{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    line-height: 140%;
+    letter-spacing: 0.02em;
+    text-align: left;
+    opacity: 0.9;
+    margin: 8% 0 0 72px;
+    transition: all 0.2s ease-in-out;
+}
+.usercommentsmall{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 145%;
+    letter-spacing: 0.02em;
+    text-align: left;
+    opacity: 0.7;
+    margin: 8% 5%;
+    transition: all 0.2s ease-in-out;
+}
+.usersourcereddit{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #CAAEFF;
+    line-height: 140%;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin: 8% 0 0 72px;
+    transition: all 0.2s ease-in-out;
+}
+.usercommentreddit{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 145%;
+    letter-spacing: 0.02em;
+    text-align: left;
+    opacity: 0.7;
+    margin: 10% 5% 8% 5%;
+    transition: all 0.2s ease-in-out;
+}
+#socialbox1{
+    position: relative;
+    margin-left: 0;
+    width: 34vw;
+    height: 100%;
+}
+#socialbox2{
+    position: relative;
+    margin-left: 0vw;
+    width: 23vw;
+    height: 100%;
+}
+#socialbox3{
+    position: relative;
+    margin-left: 2vw;
+    width: 23vw;
+    height: 100%;
+}
+#socialbox4{
+    position: relative;
+    margin-left: 2vw;
+    width: 35vw;
+    height: 100%;
+}
+#socialbox5{
+    position: relative;
+    width: 20vw;
+    margin-left: 2vw;
+    margin-bottom: 2vw;
+}
+#socialbox6{
+    position: relative;
+    width: 20vw;
+    margin-left: 2vw;
+}
+
+#footer{
+    margin: 24vh auto 0;
+}
+#footerheader{
+    width: 70vw;
+    text-align: center;
+    margin: 0 auto;
+}
+#footersubheader{
+    width: 50vw;
+    text-align: center;
+    margin: 4vh auto;
+}
+#footerctas{
+    width: 90vw;
+    margin: 12vh auto 0;
+    text-align: center;
+}
+#footerprimarycta{
+    background-color: #814DE5;
+    color: #FFFFFF;
+    width: 300px;
+    height: 64px;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 24px;
+}
+
+.linktext{
+    color: #814DE5;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    height: 24px;
+    margin: 0;
+}
+#linkscontainer{
+    width: 90vw;
+    margin: 36vh auto 12vh;
+    padding: 0.01vh;
+    text-align: center;
+    position: relative;
+}
+#copyright{
+    position: absolute;
+    left: 0;
+}
+#links{
+    text-align: center;
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+#links a{
+    text-decoration: none;
+}
+.linkicon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+}
+#email, #share, #melink{
+    margin: 0 0 0 4vw;
+    position: relative;
+}
+#email span, #share span, #melink span{
+    margin-left: 32px;
+}
+
+}
+
+@media (min-width: 0px) and (max-width: 959px){
+
+#flexcontainer{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#flexcontainer::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+#flexcontainer {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+#logo{
+    position: relative;
+    margin: 0;
+    top: 4vh;
+    left: calc(5vw - 1.2vh);
+    transform: scale(0.9);
+}
+#homeheader{
+    width: 90vw;
+    font-family: 'Inter', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #814DE5;
+    line-height: 130%;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin: 12vh auto 0;
+}
+#homeheaderappln{
+    color: #CAAEFF;
+}
+#ctas{
+    width: 90vw;
+    text-align: center;
+    margin: 12vh auto 0;
+}
+#headerprimarycta{
+    background-color: #814DE5;
+    color: #FFFFFF;
+    width: 90vw;
+    height: 64px;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+#headerseccta{
+    background-color: transparent;
+    color: #CAAEFF;
+    width: 90vw;
+    height: 64px;
+    padding: 12px;
+    border: 2px solid #814DE5;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+}
+
+#videocontainer{
+    width: 90vw;
+    padding: 0;
+    background-color: #814DE50D;
+    border: 0.25vh solid #814DE51A;
+    border-radius: 2vh;
+    outline: none;
+    margin: 12vh auto 0;
+}
+#video{
+    border-radius: 4vh;
+    outline: none;
+}
+
+.header{
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #CAAEFF;
+    line-height: 130%;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin: 0 0 2vh 0;
+}
+.subheader{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #CAAEFF;
+    line-height: 160%;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin: 4vh 0 0 0;
+}
+#feature1{
+    width: 90vw;
+    margin: 16vh 0 0 5vw;
+}
+#feature1text{
+    vertical-align: middle;
+    width: 90vw;
+}
+#feature1video{
+    width: 90vw;
+    padding: 0;
+    margin: 4vh 0 0 0;
+}
+#f1video{
+    background-color: #814DE50D;
+    border: 0.25vh solid #814DE51A;
+    border-radius: 2vh;
+    outline: none;
+}
+#feature2{
+    width: 90vw;
+    margin: 16vh 0 0 5vw;
+}
+#feature2text{
+    vertical-align: middle;
+    width: 90vw;
+}
+#feature2video{
+    width: 90vw;
+    padding: 0;
+    margin: 8vh 0 0 0;
+}
+#f2video{
+    background-color: #814DE50D;
+    border: 0.25vh solid #814DE51A;
+    border-radius: 2vh;
+    outline: none;  
+}
+#f2cta{
+    position: relative;
+    background-color: transparent;
+    color: #CAAEFF;
+    width: 90vw;
+    height: 64px;
+    padding: 12px;
+    border: 2px solid #814DE5;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+    margin: 4vh 0 0 0;
+}
+#f2ctalogo{
+    position: absolute;
+    top: 16px;
+    left: 32px;
+}
+#f2ctatext{
+    position: absolute;
+    width: 90%;
+    top: 20px;
+    left: 54%;
+    transform: translateX(-50%);
+}
+
+#pricing{
+    margin: 12vh auto 0;
+    padding-top: 4vh;
+}
+#priceheader{
+    width: 90vw;
+    text-align: center;
+    margin: 0 auto;
+}
+#pricesubheader{
+    width: 90vw;
+    text-align: center;
+    margin: 4vh auto;
+}
+.priceamount{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #CAAEFF;
+    line-height: 120%;
+    letter-spacing: 0.02em;
+    margin: 10% 0 10% 0;
+    text-align: center;
+}
+.strikedprice{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #CAAEFF;
+    line-height: 120%;
+    letter-spacing: 0.01em;
+    margin: 10% 0 10% 0;
+    text-align: center;
+    opacity: 0.5;
+}
+.pricetitle{
+    width: 90%;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #CAAEFF;
+    line-height: 140%;
+    letter-spacing: 0.02em;
+    margin: 4% 0 0 5%;
+    text-align: left;
+}
+.pricetick{
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 1px;
+    margin: 0 4px 0 0;
+}
+#strikedprice{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #CAAEFF;
+    line-height: 120%;
+    letter-spacing: 0.01em;
+    margin: 5% 0 0 12px;
+    opacity: 0.5;
+}
+.pricecta{
+    background-color: #814DE5;
+    color: #FFFFFF;
+    width: 90%;
+    height: 64px;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 0 8% 5%;
+}
+.priceseccta{
+    background-color: transparent;
+    color: #CAAEFF;
+    width: 90%;
+    height: 64px;
+    padding: 12px;
+    border: 2px solid #814DE5;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 0 8% 5%;
+}
+#priceboxes{
+    width: 90vw;
+    margin: 8vh auto;
+}
+#pricebox1container{
+    position: relative;
+    width: 90vw;
+}
+#pricebox1{
+    position: relative;
+    background-color: #814DE50D;
+    border: none;
+    box-shadow: 0 0 0 0.5vh #814DE51A;
+    border-radius: 2vh;
+    outline: none;
+    width: 90vw;
+    height: 100%;
+    padding-bottom: 10%;
+}
+#pricebox2container{
+    position: relative;
+    width: 90vw;
+    margin: 6vh auto;
+}
+#pricebox2{
+    position: relative;
+    background-color: #814DE50D;
+    border: none;
+    box-shadow: 0 0 0 0.5vh #814DE5;
+    border-radius: 2vh;
+    outline: none;
+    width: 90vw;
+    height: 100%;
+    padding-bottom: 10%;
+}
+#pricebox3container{
+    position: relative;
+    width: 90vw;
+}
+#pricebox3{
+    position: relative;
+    background-color: #814DE50D;
+    border: none;
+    box-shadow: 0 0 0 0.5vh #814DE51A;
+    border-radius: 2vh;
+    outline: none;
+    width: 90vw;
+    height: 100%;
+    padding-bottom: 10%;
+}
+#starter{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #814DE5;
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding: 1.2vh;
+    background-color: #814DE50D;
+    margin: 0 -0.5vh;
+    border-radius: 2vh 2vh 0 0;
+}
+#deal{
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: #05020B;
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding: 1.2vh;
+    background-color: #FF9F3D;
+    top: -0.5vh;
+    margin: 0 -0.5vh;
+    border-radius: 2vh 2vh 0 0;
+}
+#team{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #814DE5;
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding: 1.2vh;
+    background-color: #814DE50D;
+    margin: 0 -0.5vh;
+    border-radius: 2vh 2vh 0 0;
+}
+#priceinfo{
+    width: 90vw;
+    text-align: center;
+    margin: 8vh auto;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0.01em;
+    opacity: 0.7;
+}
+
+#socialproof{
+    margin: 16vh auto 0;
+}
+#socialheader{
+    width: 90vw;
+    text-align: center;
+    margin: 0 auto;
+}
+#socialsubheader{
+    width: 90vw;
+    text-align: center;
+    margin: 4vh auto;
+}
+#socialboxes{
+    width: 90vw;
+    margin: 8vh auto;
+}
+.socialboxes{
+    width: 90vw;
+    margin-top: 4vh;
+}
+.socialbox{
+    background-color: #814DE50D;
+    border: 0.5vh solid #814DE51A;
+    border-radius: 2vh;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+#socialboxes a{
+    text-decoration: none;
+}
+.socialbox:hover{
+    border: 0.5vh solid #814DE54D;
+}
+
+.socialicon{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 8%;
+    right: 5%;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
+.socialiconreddit{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 10%;
+    right: 5%;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
+.userimage{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 10%;
+    left: 5%;
+    transition: all 0.2s ease-in-out;
+}
+.username, .usernamesmall{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    line-height: 140%;
+    letter-spacing: 0.01em;
+    text-align: left;
+    opacity: 0.9;
+    margin: 6% 0 0 72px;
+    transition: all 0.2s ease-in-out;
+}
+.usersource, .usersourcesmall, .usersourcereddit{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #CAAEFF;
+    line-height: 140%;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin: 4px 0 0 72px;
+    transition: all 0.2s ease-in-out;
+}
+.usersourcereddit{
+    margin: 8% 0 0 72px;
+}
+.usercomment, .usercommentsmall, .usercommentreddit{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 152%;
+    letter-spacing: 0.01em;
+    text-align: left;
+    opacity: 0.7;
+    margin: 5%;
+    transition: all 0.2s ease-in-out;
+}
+#socialbox1{
+    position: relative;
+    width: 90vw;
+}
+#socialbox2{
+    position: relative;
+    width: 90vw;
+    margin: 4vh auto;
+}
+#socialbox3{
+    position: relative;
+    width: 90vw;
+    margin: 4vh auto;
+}
+#socialbox4{
+    position: relative;
+    width: 90vw;
+    margin: 4vh auto;
+}
+#socialbox5{
+    position: relative;
+    width: 90vw;
+    margin: 4vh auto;
+}
+#socialbox6{
+    position: relative;
+    width: 90vw;
+    margin: 4vh auto;
+}
+
+#footer{
+    margin: 16vh auto 0;
+}
+#footerheader{
+    width: 90vw;
+    text-align: center;
+    margin: 0 auto;
+}
+#footersubheader{
+    width: 90vw;
+    text-align: center;
+    margin: 4vh auto;
+}
+#footerctas{
+    width: 90vw;
+    margin: 8vh auto 0;
+    text-align: center;
+}
+#footerprimarycta{
+    background-color: #814DE5;
+    color: #FFFFFF;
+    width: 90vw;
+    height: 64px;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.linktext{
+    color: #814DE5;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    height: 24px;
+    margin: 0;
+}
+#linkscontainer{
+    width: 80vw;
+    margin: 20vh auto 12vh;
+    text-align: center;
+}
+#copyright{
+    margin-left: 2px;
+}
+#links{
+    text-align: center;
+}
+#links a{
+    text-decoration: none;
+}
+.linkicon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+#email, #share, #melink{
+    margin: 3vh 0 0 0; 
+    position: relative;
+}
+#email span, #share span, #melink span{
+    margin-left: 32px;
+}
+
+}
