@@ -638,6 +638,24 @@ body{
     width: 20vw;
     margin-left: 2vw;
 }
+#socialbox7{
+    position: relative;
+    margin-left: 0;
+    width: 22vw;
+    height: 100%;
+}
+#socialbox8{
+    position: relative;
+    margin-left: 2vw;
+    width: 22vw;
+    height: 100%;
+}
+#socialbox9{
+    position: relative;
+    margin-left: 2vw;
+    width: 22vw;
+    height: 100%;
+}
 
 #footer{
     margin: 24vh auto 0;
