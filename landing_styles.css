@@ -772,7 +772,6 @@ body{
     transform: scale(0.9);
 }
 #phembed{
-    position: inline-block;
     position: relative;
     margin: 0;
     top: -5vh;
