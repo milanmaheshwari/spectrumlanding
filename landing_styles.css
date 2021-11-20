@@ -39,6 +39,7 @@ body{
     margin: 0;
     top: 9vh;
     right: 5vw;
+    visibility: hidden;
 }
 #homeheader{
     width: 68vw;
@@ -776,6 +777,7 @@ body{
     top: 6vh;
     left: 32vw;
     width: 90vw;
+    visibility: hidden;
 }
 #homeheader{
     width: 90vw;
