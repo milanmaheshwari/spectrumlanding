@@ -38,7 +38,7 @@ body{
     position: relative;
     margin: 0;
     top: -2vh;
-    left: calc(90vw - 30vh);
+    left: calc(95vw - 30vh);
     visibility: hidden;
 }
 #homeheader{
