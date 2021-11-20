@@ -37,8 +37,8 @@ body{
 #phembed{
     position: relative;
     margin: 0;
-    top: 8vh;
-    right: 5vw;
+    top: 5.5vh;
+    left: 72vw;
 }
 #homeheader{
     width: 68vw;
@@ -769,6 +769,13 @@ body{
     top: 4vh;
     left: calc(5vw - 1.2vh);
     transform: scale(0.9);
+}
+#phembed{
+    position: absolute;
+    margin: 0;
+    top: 6vh;
+    left: 32vw;
+    width: 90vw;
 }
 #homeheader{
     width: 90vw;
