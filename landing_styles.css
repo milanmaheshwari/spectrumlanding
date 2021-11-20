@@ -32,7 +32,13 @@ body{
     position: relative;
     margin: 0;
     top: 8vh;
-    left: calc(50vw - 6vh);
+    left: 5vw;
+}
+#phembed{
+    position: relative;
+    margin: 0;
+    top: 8vh;
+    right: 5vw;
 }
 #homeheader{
     width: 68vw;
