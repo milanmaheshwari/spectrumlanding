@@ -35,10 +35,10 @@ body{
     left: 5vw;
 }
 #phembed{
-    position: absolute;
+    position: relative;
     margin: 0;
-    top: 9vh;
-    right: 5vw;
+    top: -2vh;
+    left: calc(90vw - 30vh);
     visibility: hidden;
 }
 #homeheader{
@@ -50,7 +50,7 @@ body{
     line-height: 130%;
     letter-spacing: 0.01em;
     text-align: center;
-    margin: 12vh auto 0;
+    margin: 8vh auto 0;
 }
 #homeheaderappln{
     color: #CAAEFF;
@@ -772,10 +772,11 @@ body{
     transform: scale(0.9);
 }
 #phembed{
-    position: absolute;
+    position: inline-block;
+    position: relative;
     margin: 0;
-    top: 6vh;
-    right: 5vw;
+    top: -5vh;
+    left: calc(95vw - 30vh);
     visibility: hidden;
 }
 #homeheader{
@@ -787,7 +788,7 @@ body{
     line-height: 130%;
     letter-spacing: 0.01em;
     text-align: left;
-    margin: 12vh auto 0;
+    margin: 4vh auto 0;
 }
 #homeheaderappln{
     color: #CAAEFF;
