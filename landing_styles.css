@@ -775,8 +775,7 @@ body{
     position: absolute;
     margin: 0;
     top: 6vh;
-    left: 32vw;
-    width: 90vw;
+    right: 5vw;
     visibility: hidden;
 }
 #homeheader{
