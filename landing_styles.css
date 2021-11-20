@@ -39,7 +39,6 @@ body{
     margin: 0;
     top: -2vh;
     left: calc(95vw - 30vh);
-    visibility: hidden;
 }
 #homeheader{
     width: 68vw;
@@ -776,7 +775,6 @@ body{
     margin: 0;
     top: -5vh;
     left: calc(95vw - 30vh);
-    visibility: hidden;
 }
 #homeheader{
     width: 90vw;
