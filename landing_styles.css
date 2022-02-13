@@ -41,7 +41,7 @@ body{
     left: calc(95vw - 30vh);
 }
 #homeheader{
-    width: 68vw;
+    width: 64vw;
     font-family: 'Inter', sans-serif;
     font-size: 72px;
     font-weight: 800;
