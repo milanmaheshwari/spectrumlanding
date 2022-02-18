@@ -2322,6 +2322,7 @@ uploadedimagedelete1.onclick = () => {
     uploadonlytoggle.style.display = "none";
   }
   togglecheck();
+  imageLoader.value = '';
 }
 uploadedimagedelete2.onclick = () => {
   if(document.getElementById('uploadedimagecontainer1').style.display == 'block'){
@@ -2373,6 +2374,7 @@ uploadedimagedelete2.onclick = () => {
     uploadedimagecontainer2.style.display = "none";
   }
   togglecheck();
+  imageLoader.value = '';
 }
 uploadedimagedelete3.onclick = () => {
   if(document.getElementById('uploadedimagecontainer1').style.display == 'block'){
@@ -2413,6 +2415,7 @@ uploadedimagedelete3.onclick = () => {
     uploadedimagecontainer3.style.display = "none";
   }
   togglecheck();
+  imageLoader.value = '';
 }
 uploadedimagedelete4.onclick = () => {
   if(document.getElementById('uploadedimagecontainer1').style.display == 'block'){
@@ -2444,6 +2447,7 @@ uploadedimagedelete4.onclick = () => {
     uploadedimagecontainer4.style.display = "none";
   }
   togglecheck();
+  imageLoader.value = '';
 }
 uploadedimagedelete5.onclick = () => {
   if(document.getElementById('uploadedimagecontainer1').style.display == 'block'){
@@ -2468,6 +2472,7 @@ uploadedimagedelete5.onclick = () => {
     uploadedimagecontainer5.style.display = "none";
   }
   togglecheck();
+  imageLoader.value = '';
 }
 uploadedimagedelete6.onclick = () => {
   if(document.getElementById('uploadedimagecontainer1').style.display == 'block'){
@@ -2487,6 +2492,7 @@ uploadedimagedelete6.onclick = () => {
     uploadedimagecontainer6.style.display = "none";
   }
   togglecheck();
+  imageLoader.value = '';
 }
 
 //shuffling
